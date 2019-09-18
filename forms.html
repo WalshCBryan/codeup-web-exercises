@@ -22,23 +22,24 @@
 
         <Label for="bio">Bio</Label>
         <br>
-        <textarea class="Tbox" id="bio" name="bio" rows="10" cols="30" placeholder="Tell us about yourself..."></textarea>
+        <textarea id="bio" name="bio" rows="10" cols="20" placeholder="Tell us about yourself..."></textarea>
         <br>
 
-        <label id="howHeard" for="howHeard">How did you hear about us?</label>
+        <label for="howHeard">How did you hear about us?</label>
         <br>
-        <input type="radio" name="howHeard" value="Billboard">Billboard<br>
-        <input type="radio" name="howHeard" value="Radio Advertisement">Radio Advertisement<br>
-        <input type="radio" name="howHeard" value="Internet Advertisement">Internet Advertisement<br>
-        <input type="radio" name="howHeard" value="Other">Other<br>
+            <input id="howHeard" type="checkbox" name="howHeard" value="Billboard"><label for="howHeard">Billboard</label><br>
+            <input id="howHeard" type="checkbox" name="howHeard" value="Radio Advertisement"><label for="howHeard">Radio Advertisement</label><br>
+            <input id="howHeard" type="checkbox" name="howHeard" value="Internet Advertisement"><label for="howHeard">Internet Advertisement</label><br>
+            <input id="howHeard" type="checkbox" name="howHeard" value="Other"><label for="howHeard">Other</label><br>
 
 
-        <label id="browserType" for="browserType">What browser do you use?</label>
-        <select name="browser_preference">
+        <label for="browserType">What browser do you use?</label>
+        <select id="browserType" name="browser_preference">
             <option value="IE">Internet Explorer</option>
             <option value="Chrome">Chrome</option>
             <option value="Firefox">Firefox</option>
             <option value="Safari">Safari</option>
+            <option value="Netscape">Netscape Navigator (why?)</option>
         </select>
         <br>
 
