@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Register with Us</title>
+    <style>
+
+        body {
+            background-color:lightgray;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+        }
+
+        button {
+            border-radius: 12px;
+            color: white;
+            background-color: black;
+
+
+        }
+        button:hover {
+            color: teal;
+            background-color: mediumpurple;
+        }
+
+        button:active {
+            transform: translateY(4px);
+        }
+
+    </style>
+
 </head>
-<body>
-<h1>Veridian Dynamics</h1>
-    <form method="POST" action="https://request-inspector.glitch.me">
+    <body>
+        <img id="logo" src="img/veridianlogo.jpg" alt="Veridian Dynamics" height="30px" width="30px" style="float:left">
+
+        <h1>Veridian Dynamics</h1>
+
+        <form method="POST" action="https://request-inspector.glitch.me">
         <label for="username" >Username</label>
         <input id="username" name="username" type="text" placeholder="Enter Your Username">
         <br>
@@ -17,13 +54,13 @@
 
         <Label for="bio">Bio</Label>
         <br>
-        <textarea name="bio" rows="10" cols="30" placeholder="Tell us about yourself..."></textarea>
+        <textarea class="Tbox" id="bio" name="bio" rows="10" cols="30" placeholder="Tell us about yourself..."></textarea>
         <br>
 
         <label for="howHeard">How did you hear about us?</label>
         <br>
         <input id="howHeard" type="radio" name="howHeard" value="Billboard">Billboard<br>
-        <input id="howHeard" type="radio" name="howHeard" value="Radio Advertisement">Radio Advertisement<br>
+        <input type="radio" name="howHeard" value="Radio Advertisement">Radio Advertisement<br>
         <input id="howHeard" type="radio" name="howHeard" value="Internet Advertisement">Internet Advertisement<br>
         <input id="howHeard" type="radio" name="howHeard" value="Other">Other<br>
 
@@ -35,10 +72,12 @@
             <option value="Firefox">Firefox</option>
             <option value="Safari">Safari</option>
         </select>
+        <br>
 
 
+        <button type="submit">Submit</button>
 
-        <input type="submit">
+
 
     </form>
 </body>
