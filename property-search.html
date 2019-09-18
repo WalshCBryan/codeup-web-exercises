@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Property Search</title>
 </head>
 <body>
-$END$
+
+<form method="Get" action="https://request-inspector.glitch.me/">
+
+    <label for="propertyType">What type of property?</label>
+    <select id="propertyType" name="propertyType">
+        <option value="Home">Standalone Homes</option>
+        <option value="Condo">Condominiums</option>
+        <option value="Townhome">Townhomes</option>
+        <option value="Apartment">Apartments</option>
+    </select>
+    <br>
+
+    <label for="sqft">Square Footage</label>
+    <input id="sqft" name="sqft" type="number" placeholder="Min">
+    <input id="sqft" name="sqft" type="number" placeholder="Max">
+    <br>
+
+    <label for="pricerange">Price Range</label>
+    <input id="pricerange" name="pricerange" type="number" placeholder="Min $$$">
+    <input id="pricerange" name="pricerange" type="number" placeholder="Max $$$">
+    <br>
+
+    <label for="zip">Zip Code</label>
+    <input id="zip" name="zip" type="number">
+    <select id="zip" name="zip">
+        <option value="w/in5">Within 5 miles</option>
+        <option value="w/in20">Within 20 miles</option>
+        <option value="w/in50">Within 50 miles</option>
+        <option value="w/in100">Within 100 miles</option>
+    </select>
+    <br>
+
+    <label for="yearBuilt">Year Built</label>
+    <input id="yearBuilt" name="yearBuilt" type="number" placeholder="Min">
+    <input id="yearBuilt" name="yearBuilt" type="number" placeholder="Max">
+    <br>
+
+    <label for="bedrooms"># of Bedrooms</label>
+    <select id="bedrooms" name="bedrooms">
+        <option value="1Bed">1</option>
+        <option value="2+beds">2+</option>
+        <option value="3+beds">3+</option>
+        <option value="4+beds">4+</option>
+    </select>
+    <br>
+
+    <label for="bathrooms"># of Bathrooms</label>
+    <select id="bathrooms" name="bathrooms">
+        <option value="1bath">1</option>
+        <option value="2+bath">2+</option>
+        <option value="3+bath">3+</option>
+        <option value="4+bath">4+</option>
+    </select>
+    <br>
+
+    <button type="submit">Search for your Dream Home</button>
+
+</form>
 </body>
 </html>
