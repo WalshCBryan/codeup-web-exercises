@@ -3,19 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Veridian Dynamics</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Turret+Road&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/welcome.css">
+    <script>
+        window.alert("Your activity on this page is being monitored by Veridian Dynamics.");
+    </script>
 
 </head>
 
 <body>
-<h1 class="fancyheader" id="top">Welcome to Veridian Dynamics!</h1>
-    <p>At Veridian Dynamics, <strong><em>we</em></strong> solve your problems with <strong>technology.</strong></p>
+
+<div class="tcontainer">
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            <div class="ticker-item">S&P 500 3,006.79 +0.06(+0.00%) | Dow 30 27,094.79 -52.29 (-0.19%) | Nasdaq 8,182.88 +5.49(+0.07%) | Russell 2000 1,561.47 -6.87(-0.44%) |</div>
+            <div class="ticker-item"> Crude Oil 58.42 +0.31(+0.53%) | Gold 1,506.00 -9.80(-0.65%) | Silver 17.84 -0.08(-0.44%) | EUR/USD 1.1044 +0.0012(+0.107%) |
+            </div>
+            <div class="ticker-item">S&P 500
+                10-Yr Bond 1.7740 -0.0120(-0.67%) | Vix 14.05 +0.10(+0.72%) | GBP/USD 1.2527 +0.0052(+0.4172%) | USD/JPY 108.0220 -0.3820(-0.3524%) | BTC-USD 10,300.92 +137.55(+1.35%) | FTSE 100 7,356.42 +42.37(+0.58%)</div>
+        </div>
+    </div>
+</div>
+<img id="mainimg" src="img/veridianlogo.png" alt="Veridian Dynamics" height="100px" width="100px"">
+
+<h1 class="header" id="top">Welcome to Veridian Dynamics!</h1>
+    <p class="header">At Veridian Dynamics, <strong><em>we</em></strong> solve your problems with <strong>technology.</strong></p>
     <hr>
+
+<div id="points">
 <h3>Core Values</h3>
     <ul>
+        <img class="logo" src="img/veridianlogo.png" alt="Veridian Dynamics" height="15px" width="15px" style="float:left">
         <li>Competence</li>
+        <img class="logo" src="img/veridianlogo.png" alt="Veridian Dynamics" height="15px" width="15px" style="float:left">
         <li>Involvement</li>
+        <img class="logo" src="img/veridianlogo.png" alt="Veridian Dynamics" height="15px" width="15px" style="float:left">
         <li>Technology</li>
     </ul>
 <h3>Our Process</h3>
@@ -26,19 +48,23 @@
     </ol>
 <h3>2020 Vision</h3>
     <ul>
+        <img class="logo" src="img/veridianlogo.png" alt="Veridian Dynamics" height="15px" width="15px" style="float:left">
         <li>Competence</li>
+        <img class="logo" src="img/veridianlogo.png" alt="Veridian Dynamics" height="15px" width="15px" style="float:left">
         <li>Involvement</li>
+        <img class="logo" src="img/veridianlogo.png" alt="Veridian Dynamics" height="15px" width="15px" style="float:left">
         <li>Technology</li>
     </ul>
 <hr>
 <h3>Company Vision</h3>
+</div>
 
-
-        <img src="img/img1.jpg" alt="holder1" style="width:40%;height:250px;">
-        <img src="img/img2.jpeg" alt="holder2" style="width:40%;height:250px;">
-        <img src="img/img3.jpg" alt="holder4" style="width:40%;height:250px;">
-        <img src="img/img4.jpeg" alt="holder4" style="width:40%;height:250px;">
-
+<div id="bigImages">
+        <img class="image" src="img/img1.jpg" alt="holder1" style="width:40%;height:250px;">
+        <img class="image" src="img/img2.jpeg" alt="holder2" style="width:40%;height:250px;">
+        <img class="image" src="img/img3.jpg" alt="holder4" style="width:40%;height:250px;">
+        <img class="image" src="img/img4.jpeg" alt="holder4" style="width:40%;height:250px;">
+</div>
 
 
 
@@ -68,8 +94,8 @@
 </table>
     <p><em>All products come with with our quality guarantee &trade;</em></p>
 
-    <button><a href="#top">Back to top</a>
-    </button>
+<a href="#top"><button>Back to top</button></a>
+
 
 
     </body>

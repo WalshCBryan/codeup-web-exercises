@@ -1,4 +1,22 @@
 
+h1 {
+    color: purple;
+    font-family: 'Indie Flower', cursive;
+}
+
+h2 {
+    color: orange;
+}
+
+#items {
+    list-style: none;
+}
+
+#ipsum p {
+    background-color: teal;
+    color: orange
+}
+
 body {
     background-color:lightgray;
 }
@@ -12,7 +30,6 @@ textarea {
     background-color: #f8f8f8;
     margin: 40px;
 }
-
 
 
 button {

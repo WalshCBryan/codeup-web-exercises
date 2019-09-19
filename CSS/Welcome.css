@@ -1,0 +1,165 @@
+
+.header {
+    text-align: center;
+}
+
+h1, h3 {
+    text-decoration: underline;
+}
+
+body {
+    background-color: bisque;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: 'Turret Road', cursive;
+}
+h3:hover {
+    color: maroon;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: maroon;
+    color: lightgray;
+}
+
+tr, td{
+    border: 2px solid black;
+    transition: transform .5s;
+}
+
+tr:hover, td:hover {
+    transform: scale(.95);
+}
+
+#mainimg  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+a:link, a:visited {
+    background-color: black;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+a:hover, a:active {
+    background-color: maroon;
+    color: lightgray;
+    border-radius: 5px;
+}
+
+button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Turret Road', cursive;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+.logo:hover {
+    animation: bounce 1s;
+    color: rosybrown;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4)
+}
+
+#points, table {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.image {
+    padding: 2px;
+    background-color: maroon;
+    border: 5px solid black;
+    transition: transform .5s;
+
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+#top {
+    background-image: linear-gradient(maroon, darkgray, black);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+.tcontainer{
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.ticker-wrap {
+    width: 100%;
+    padding-left: 100%;
+    background-color: #eee;
+    background-color: black;
+    color: white;
+
+}
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: ticker;
+    animation-duration: 30s;
+}
+.ticker-move:hover{
+    animation-play-state: paused;
+}
+.ticker-item{
+    display: inline-block;
+    padding: 0 2rem;
+}
+
+
+
+
+
