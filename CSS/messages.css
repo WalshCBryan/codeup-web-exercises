@@ -1,3 +1,13 @@
+/*
+ CSS variables can be assigned and used multiple times easily
+ ROOT references root dir, and therefore all elements
+ */
+
+:root {
+    --bg-info: #d0defc;
+    --text-info: #4a4a9c;
+}
+
 body, html {
     height: 100%;
     width: 100%;
@@ -9,15 +19,17 @@ body, html {
 .message  {
     border-radius: 5px;
     border: 1px solid lightgray;
-    margin-top: 5px;
+    margin: 5px auto;
     padding: 3px;
+    width: 80%;
 }
 
+/*using variables*/
 .message-info {
-    background-color: #d0defc;
-    color: #4a4a9c;
+    background-color: var(--bg-info);
+    color: var(--text-info);
 }
-
+/*using hex colors*/
 .message-success {
     background-color: #d6f2dc;
     color: #498156;
