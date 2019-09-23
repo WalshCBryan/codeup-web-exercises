@@ -1,0 +1,19 @@
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+    border: 1px solid black;
+    background-color: teal;
+    margin: 5px;
+}
+
+#box2 {
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+#rainbow {
+    background-image: linear-gradient(to bottom, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

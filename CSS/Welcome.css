@@ -7,8 +7,14 @@ h1, h3 {
     text-decoration: underline;
 }
 
-body {
-    background-color: bisque;
+body, html {
+    background-image: url("../img/background4.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+
 }
 
 ul {
@@ -36,6 +42,8 @@ tr, td{
 
 tr:hover, td:hover {
     transform: scale(.95);
+    color: white;
+    background-color: darkgray;
 }
 
 #mainimg  {
@@ -111,6 +119,7 @@ button:hover {
     background-color: maroon;
     border: 5px solid black;
     transition: transform .5s;
+    border-radius: 5px;
 
 }
 
@@ -119,7 +128,7 @@ button:hover {
 }
 
 #top {
-    background-image: linear-gradient(maroon, darkgray, black);
+    background-image: linear-gradient(maroon, black);
     -webkit-background-clip: text;
     color: transparent;
 }
