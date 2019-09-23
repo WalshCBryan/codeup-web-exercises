@@ -54,14 +54,12 @@ fieldset {
     padding-top: 4px;
     padding-bottom: 4px;
     /* It should have a separation of .5em from elements on top of it and below it */
-    margin-top: .5em;
-    margin-bottom: .5em;
+    margin: .5em 0;
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
-    width: calc(100% - 18px);
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Calculate based on the padding of the `.btn` class */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: 100%;
+    width: calc(100% - 4px);
 }
 
 .btn {
@@ -77,5 +75,5 @@ fieldset {
 
 .btn-block {
     /* This element should use 100% of the width */
-    width: 100%
+    width: 100%;
 }
