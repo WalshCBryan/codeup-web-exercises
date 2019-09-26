@@ -4,7 +4,13 @@ html {
     font-size: .75em;
 }
 
+body {
+    margin: 0;
+}
+
 .navbar {
+    position: fixed;
+    width: 100%;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -17,6 +23,7 @@ a {
     display: inline-block;
     padding: 0 .5em;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:link {
@@ -37,11 +44,11 @@ a:hover {
 
 #logo {
     font-family: 'Montserrat', sans-serif;
-    position: absolute;
-    margin-left: 40%;
-    margin-right: 40%;
     font-size: 3em;
     padding: .2em;
+    left: 50%;
+    margin-left: -70px;
+    position: absolute;
 }
 .navbar {
 
@@ -49,7 +56,9 @@ a:hover {
 
 .list-item {
     padding: .5em;
-    margin: 0px 1.25em;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 #left-of-center {

@@ -27,6 +27,7 @@ a {
     padding: 20px;
     border-radius: 4px;
     text-align: center;
+
 }
 
 .card-title {
@@ -82,6 +83,7 @@ a {
 
 .card {
     align-self: center;
+    flex-basis: 33%;
 
     /* This is a flex item */
 }
