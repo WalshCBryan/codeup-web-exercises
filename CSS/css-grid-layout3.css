@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+#card {
+    display: inline-grid;
+    grid-template-rows: 3fr repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6px;
+    background-color: white;
+    height: 90vh;
+    width: 90vw;
+    border: 1px solid black;
+    grid-template-areas:
+            "box1 box1 box1 box1"
+            "box2 box3 box4 box4"
+            "box2 box5 box5 box6"
+            "box2 box7 box8 box9"
+            "box2 box10 box10 box10";
+}
+
+main {
+    display: inline-block;
+    height: 100vh;
+    width: 100vw;
+    /*border: 6px ;*/
+    /*border-radius: 5px;*/
+}
+
+#box1 {
+    background-color: #FDDA00;
+    grid-area: box1;
+
+}
+#box2 {
+    background-color: #FDDA00;
+    grid-area: box2;
+
+}
+#box3 {
+    background-color: #FDDA00;
+    grid-area: box3;
+
+}
+#box4 {
+    background-color: #FDDA00;
+    grid-area: box4;
+
+}
+#box5 {
+    background-color: #FDDA00;
+    grid-area: box5;
+
+}
+
+#box6 {
+    background-color: #FDDA00;
+    grid-area: box6;
+
+}
+#box7 {
+    background-color: #FDDA00;
+    grid-area: box7;
+
+}
+#box8 {
+    background-color: #FDDA00;
+    grid-area: box8;
+
+}
+#box9 {
+    background-color: #FDDA00;
+    grid-area: box9;
+
+}
+#box10 {
+    background-color: #FDDA00;
+    grid-area: box10;
+
+}

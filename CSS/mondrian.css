@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 #art {
     display: inline-grid;
     grid-template-rows: repeat(8, 1fr);

@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.parent {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 2fr 7fr 4fr;
+    grid-template-rows: 1fr repeat(3, 6fr) 1fr 3fr 1fr;
+    grid-gap: 0;
+    grid-template-areas:
+    "nav nav nav"
+    "side cont1 ad1"
+    "side cont2 ad2"
+    "side cont3 ad3"
+    "side page   . "
+    "side topf topf"
+    "side botf botf";
+
+}
+
+.ad1 {
+    height: 75px;
+    width: 250px;
+    border: 1px solid darkgray;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.ad2 {
+    height: 150px;
+    width: 250px;
+    border: 1px solid darkgray;
+    margin: auto;
+    margin-top: 10px;
+}
+/*top nav and top nav bar controls*/
+#topnav {
+    display: flex;
+    list-style: none;
+    background-color: black;
+    color: white;
+    top: 0;
+    left: 0;
+}
+
+#topnav li {
+    padding: 0 15px;
+
+}
+#navbar {
+    grid-area: nav;
+
+}
+
+#sidebar {
+    grid-area: side;
+    background-color: #F0F0F0;
+}
+#sidenav {
+    list-style: none;
+    margin-left:10px;
+}
+
+#contarea1 {
+    grid-area: cont1;
+    margin-left:8px;
+
+}
+
+#adarea1 {
+    grid-area: ad1;
+
+}
+
+#contarea2 {
+    grid-area: cont2;
+    margin-left: 8px;
+
+}
+
+#adarea2 {
+    grid-area: ad2;
+
+}
+
+#contarea3 {
+    grid-area: cont3;
+    margin-left:8px;
+
+}
+
+#adarea3 {
+    grid-area: ad3;
+
+}
+
+#pages {
+    grid-area: page;
+}
+
+
+#pagebar {
+    display: inline-flex;
+    list-style: none;
+    justify-items: center;
+    width: 100%;
+}
+
+
+#pagebar>li {
+    display: inline-block;
+   justify-content: center;
+
+}
+
+
+
+
+
+#topfooter {
+    grid-area: topf;
+    background-color: #333333;
+    color: white;
+    padding:30px;
+
+}
+
+#bottomfooter {
+    grid-area: botf;
+    background-color: #000000;
+    color: white;
+
+}
+
