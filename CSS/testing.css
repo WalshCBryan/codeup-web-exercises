@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+li {
+    list-style: none;
+}
+body {
+    display: grid;
+    grid-template-columns: 20% 2fr 1fr;
+    grid-template-rows: 1fr repeat(3, 6fr) 1fr 3fr 1fr;
+    grid-gap: 0;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas:
+        "nav   nav  nav"
+        "side cont1 ad1"
+        "side cont2 ad2"
+        "side cont3 ad3"
+        "side page page"
+        "side topf topf"
+        "side botf botf";
+}
+
+
+
+#navbar {
+    grid-area: nav;
+}
+
+#topnav {
+    display: flex;
+    flex-direction: row;
+}
+
+#topnav li {
+    padding-left: 8px;
+}
+
+#sidebar {
+    grid-area: side;
+
+}
+#sidelist {
+    display: flex;
+    flex-direction: column;
+}
+
+#contArea1 {
+    grid-area: cont1;
+
+}
+
+#contarea2 {
+    grid-area: cont2;
+}
+
+#contarea3 {
+    grid-area: cont3;
+}
+
+.ad1 {
+    border: 1px solid gray;
+    height: 100px;
+    width: 250px;
+    margin: auto;
+    margin-top: 30px;
+
+}
+
+.ad2 {
+    border: 1px solid gray;
+    height: 150px;
+    width: 250px;
+    margin: auto;
+    margin-top: 10px;
+}
+#adarea1 {
+    grid-area: ad1;
+}
+
+#adarea2 {
+    grid-area: ad2;
+
+}
+
+#adarea3 {
+    grid-area: ad3;
+
+}
+
+#pages {
+    grid-area: page;
+
+}
+
+#pagelist {
+    display: flex;
+    flex-direction: row;
+}
+
+#topfoot {
+    grid-area: topf;
+
+}
+
+#botFoot {
+    grid-area:botf;
+}
