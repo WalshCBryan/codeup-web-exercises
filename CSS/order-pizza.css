@@ -9,7 +9,24 @@
 }
 
 .jumbotron{
-    background-image: url('path/image.jpg');
+    background-image: url("../img/pizza.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+ #signuplink {
+    list-style-type: none;
+}
+
+ #signuplink a {
+     color:gray;
+ }
+
+.container {
+    width: 100%;
+}
+.display-4 {
+    color: darkgray;
+    background-color: #F9F9F9;
+    opacity: .75;
+    width: 100%;
 }
