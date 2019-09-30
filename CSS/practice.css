@@ -1,3 +1,8 @@
+/*for default screen size -  MOBILE DEVICES*/
+body {
+    margin: 0;
+}
+
 .box {
     width: 150px;
     height: 150px;
@@ -7,13 +12,42 @@
     margin: 5px;
 }
 
-#box2 {
-    box-sizing: border-box;
-    font-size: 12px;
+/*iphone in landscape*/
+@media screen and (min-width: 768px) {
+    body {
+        background-color: yellow;
+    }
 }
 
-#rainbow {
-    background-image: linear-gradient(to bottom, violet, indigo, blue, green, yellow, orange, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/*desktop*/
+@media screen and (min-width: 992px ) {
+    .box {
+        background-color: lime;
+    }
 }
+
+/*large screens*/
+@media screen and (min-width: 1200px) {
+    .box {
+        background-color: purple;
+    }
+}
+
+/*!*for smaller desktops & tablets (ie iPad)*!*/
+/*@media screen and (max-width: 1024px) {*/
+/*    .box {*/
+/*        background-color: yellow;*/
+/*    }*/
+/*}*/
+
+/*!*for mobile devices like smart phones, look up specific breakpoints*!*/
+/*@media screen and (max-width: 768px) {*/
+/*    body {*/
+/*        background-color: red;*/
+/*    }*/
+/*    .box {*/
+/*        background-color: blue;*/
+/*    }*/
+/*}*/
+
+
