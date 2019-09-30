@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.btn-outline-success {
+    color: gray;
+    border: 1px solid gray;
+}
+
+.jumbotron{
+    background-image: url('path/image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

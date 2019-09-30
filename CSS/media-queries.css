@@ -1,52 +1,151 @@
-* {
+html body{
     box-sizing: border-box;
     font-family: sans-serif;
-    width: 100%;
-    margin: 5px;
+    width: 100vw;
+    margin: 0;
+}
+
+body {
+    padding: 5px;
 }
 
 img {
     width: 339px;
     height: 224px;
-}
+    transform: translateX(-50%);
+    margin: auto;
+    margin-left: 50%;
+    margin-top: 10px;
 
-body {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr;
-    grid-gap: 0;
-    grid-template-areas:
-            "alert"
-            "logo"
-            "nav"
-            "pic"
-            "main"
-            "sub"
-            "foot";
-}
+    display: block;
 
+}
 
 .alert-info {
     grid-area: alert;
     background-color: #CCFFFF;
     border: 2px solid lightgray;
     text-align: center;
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+
 }
 
-body {
-    /*width: 100%;*/
-    /*display: inline-flex;*/
-    /*flex-direction: column;*/
+h1 {
+    text-align: center;
+    margin: auto;
+}
+
+nav {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+    /*align-items: center;*/
     /*justify-content: center;*/
 
+}
 
+.nav-links {
+    list-style-type: none;
+    text-align: center;
+    /*width: 80%;*/
+    padding: 0;
+    margin:0;
+}
+
+.nav-links li {
+    text-align: center;
+    line-height: 1.5em;
+    background-color: #CCCCCC;
+    margin-top: 5px;
+
+}
+
+/*.header-img {*/
+/*    margin: auto;*/
+/*    display: block;*/
+/*    !*grid-area: pic;*!*/
+
+
+
+
+.main {
+    /*grid-area: main;*/
+}
+
+.sub-section {
+    /*grid-area: sub;*/
+
+}
+
+footer {
+    margin-top: 30px;
+    display: flex;
+    /*grid-area: foot;*/
+}
+
+#copy {
+    margin-right: auto;
+}
+
+#social {
+   display: flex;
+    list-style-type: none;
+}
+
+#social li {
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+/*SWAP TO LARGER SCREEN HERE*/
+@media screen and (min-width: 992px) {
+    body {
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 0;
+        grid-template-areas:
+        "logo nav"
+        "pic  pic"
+        "main sub"
+        " .   .  "
+        "copy soc";
+}
+
+
+
+img {
+    width: 890px;
+    height: 385px;
+    margin: auto;
+    padding-left: 50%;
+    transform: translateX(-445px);
+    margin-top: 10px;
+}
+
+.hidden-on-desktop {
+    display: none;
 }
 h1 {
     grid-area: logo;
+    margin: 0;
+    text-align: left;
 }
 
 .nav-links {
     grid-area: nav;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links li {
+    background-color: white;
+}
 }
 
 .header-img {
@@ -60,66 +159,42 @@ h1 {
 .sub-section {
     grid-area: sub;
 }
-
 footer {
-grid-area: foot;
+    display: flex;
+    justify-content: space-between;
+}
+#copy {
+    grid-area: copy;
+    margin-right: 50%;
+    justify-content: flex-start;
 }
 
+#social-media-links {
+    grid-area: soc;
+    margin-right: 0;
+    margin-left: 50%;
+    justify-content: flex-end;
+}
 
+#social {
+    display: flex;
+    list-style-type: none;
+    margin-right: 0;
+    justify-content: flex-end;
 
-
-
-
-
-
-/*img {*/
-/*    width: 890px;*/
-/*    height: 385px;*/
-/*}*/
-
-/*body {*/
-/*    display: grid;*/
-/*    height: 100vh;*/
-/*    width: 100vw;*/
-/*    grid-template-columns: 2fr 1fr;*/
-/*    grid-template-rows:  1fr 400px 2fr 1fr 2fr;*/
-/*    grid-gap: 0;*/
-/*    grid-template-areas:*/
-/*    "logo nav"*/
-/*    "pic  pic"*/
-/*    "main sub"*/
-/*    " .   .  "*/
-/*    "copy soc";*/
-/*}*/
-/*.hidden-on-desktop {*/
-/*    display: none;*/
-/*}*/
-/*h1 {*/
-/*    grid-area: logo;*/
-/*}*/
-
-/*.nav-links {*/
-/*    grid-area: nav;*/
-/*}*/
-
-/*.header-img {*/
-/*    grid-area: pic;*/
-/*}*/
-
-/*.main {*/
-/*    grid-area: main;*/
-/*}*/
-
-/*.sub-section {*/
-/*    grid-area: sub;*/
-/*}*/
-
-/*#copy {*/
-/*    grid-area: copy;*/
-/*}*/
+}
 
 /*#social-media-links {*/
-/*    grid-area: soc;*/
+/*    justify-content: flex-end;*/
 /*}*/
+
+#social li {
+    padding: 10px;
+}
+
+#social li a {
+    text-decoration: none;
+    color: gray;
+}
 
 
