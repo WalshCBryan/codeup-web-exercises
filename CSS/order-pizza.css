@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 .btn-outline-success {
     color: gray;
     border: 1px solid gray;
@@ -10,8 +9,6 @@
 
 .jumbotron{
     background-image: url("../img/pizza.png");
-    /*background-size: cover;*/
-    /*background-repeat: no-repeat;*/
     width: 100%;
 }
  #signuplink {
@@ -22,14 +19,8 @@
      color:gray;
  }
 
-.container {
-    /*width: 100%;*/
-}
+
 .display-4 {
     background-color: #F9F9F9;
     opacity: .75;
-}
-
-.nav-tabs li {
-    /*padding: 10px;*/
 }
