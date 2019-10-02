@@ -10,7 +10,7 @@
     <p>These are my morning warmups</p>
     <script>
 
-        //write a function that adds 2 numbers together
+//write a function that adds 2 numbers together
 
        function sumBoth(x) {
             a = 3;
@@ -46,7 +46,7 @@
   console.log(sayHi())
 
 
-       // write a function that takes a name and says "hello (name)!"
+// write a function that takes a name and says "hello (name)!"
 
        function sayHello(name) {
       return ("Hello " + name + " !")
@@ -54,8 +54,8 @@
 
    console.log(sayHello("Bryan"))
 
-      //  write a function that returns the first element of an array
- //   returns element at index pos 0 (first pos) using x[0]
+//  write a function that returns the first element of an array
+//   returns element at index pos 0 (first pos) using x[0]
 
          function firstElement(x) {
          return x[0];
@@ -64,7 +64,7 @@
          console.log(firstElement([4,5,8,5,2]));
 
 
- // create a function to return the are of an equilateral triangle given a side length
+// create a function to return the are of an equilateral triangle given a side length
 
          function eqTriArea(s) {
              return (Math.sqrt(3) / 4 * s * s);
@@ -79,13 +79,22 @@
         }
         console.log(concat("how", "are", "you"))
 
-        //create a function that takes in a string and returns the same string with all characters upper case//
+ //create a function that takes in a string and returns the same string with all characters upper case//
 
         function upperCase(x) {
              return x.toUpperCase();
 
         }
         console.log(upperCase("pony"))
+
+// function to dfind area of circle given the diameter
+
+        function circleArea(d) {
+             var r = d / 2;
+             return (Math.PI * r * r);
+        }
+
+        console.log(circleArea(5))
 
     </script>
 </body>
