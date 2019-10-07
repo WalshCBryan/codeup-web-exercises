@@ -133,6 +133,8 @@ button:hover {
     color: transparent;
 }
 
+/*following has been modified, but not written by myself*/
+
 @keyframes ticker {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-100%, 0, 0); }
@@ -148,7 +150,6 @@ button:hover {
     width: 100%;
     padding-left: 100%;
     background-color: #eee;
-    background-color: black;
     color: white;
 
 }
