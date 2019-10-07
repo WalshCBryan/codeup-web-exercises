@@ -25,7 +25,7 @@ function totalPay() {
     var google = 400;
     var amazon = 380;
     var facebook = 350;
-    return ((google *6) + (amazon * 4) + (facebook *10));
+    return ((google * 6) + (amazon * 4) + (facebook * 10));
 }
 
 console.log ((totalPay()));
