@@ -1,90 +1,282 @@
 "use strict";
+//
+// console.log("Hello from external JS");
+//
+// alert("Welcome to my Website!!");
+//
+// var favColor = prompt("Hey, what's your favorite color??");
+//
+// alert("Cool, " + favColor + " is my favorite too!");
+//
+// // ex 3.1
+//
+// var totalDays = prompt("how many total days will you be renting all movies?");
+//
+// var pricePerDay = 3;
+//
+// alert("You owe $" + (totalDays * pricePerDay) + " for your movies");
+//
+//
+//
+// // ex 3.2
+//
+// var googleHours = parseInt(prompt("How many hours did you work for Google this week?"));
+// var amazonHours = parseInt(prompt("How many hours did you work for Amazon this week?"));
+// var fbHours = parseInt (prompt("How many hours did you work for Facebook this week?"));
+//
+// function payMe() {
+//     var googleRate = 400;
+//     var amazonRate = 380;
+//     var facebookRate = 350;
+//     var totalPay = ((googleRate * googleHours) + (amazonRate * amazonHours) + (facebookRate * fbHours));
+//
+//
+//     alert("Your total pay is $" + totalPay);
+// }
+//
+// payMe()
+//
+//
+// // ex 3.3
+// // A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with her current schedule.
+//
+// var classIsFull = confirm("Is the class full?");
+// var schedConflict = confirm("Does it conflict with your schedule?");
+//
+// function canEnroll() {
+//     if ((classIsFull === true) || (schedConflict === true)) {
+//         alert("Unfortunately you cannot sign up for this class");
+//     } else {
+//         alert("Great, you can sign up for the class!");
+//     }
+// }
+// canEnroll();
+//
+//
+// // Ex 3.4
+// // A product offer can be applied only if a person buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
+//
+// var cart = parseInt(prompt("How many items are in your cart?"));
+// var premMember = confirm("Are you a premium member?");
+//
+// function getsDiscount() {
+//     if ((cart > 2) || (premMember === true)) {
+//         alert("Great, you get the discount, dawg");
+//     } else {
+//         alert("No discount for you!");
+//     }
+// }
+// getsDiscount();
+//
+//
+// // ex 4
+//
+// var username = prompt("Username:");
+// var password = prompt("Password:");
+//
+//
+// function validityTest() {
+//     if (password.length >= 5 &&
+//     password.indexOf(username) === -1 &&
+//         username.length <= 20 &&
+//         username === username.trim() &&
+//         password === password.trim()) {
+//         alert("Your credentials are valid") }
+//     else {
+//         alert("Your credentials are no good!");
+//     }
+// }
+//
+// validityTest();
 
-console.log("Hello from external JS");
+//function to find if number is even
 
-alert("Welcome to my Website!!");
+function isEven(x) {
+    if (x % 2 ==0) {
+        return true
+        } else {
+        return false }
+    }
 
-var favColor = prompt("Hey, what's your favorite color??");
+console.log(isEven(8));
+console.log(isEven(11));
 
-alert("Cool, " + favColor + " is my favorite too!");
+//function to find if number is odd
 
-// ex 3.1
-
-var totalDays = prompt("how many total days will you be renting all movies?");
-
-var pricePerDay = 3;
-
-alert("You owe $" + (totalDays * pricePerDay) + " for your movies");
-
-
-
-// ex 3.2
-
-var googleHours = parseInt(prompt("How many hours did you work for Google this week?"));
-var amazonHours = parseInt(prompt("How many hours did you work for Amazon this week?"));
-var fbHours = parseInt (prompt("How many hours did you work for Facebook this week?"));
-
-function payMe() {
-    var googleRate = 400;
-    var amazonRate = 380;
-    var facebookRate = 350;
-    var totalPay = ((googleRate * googleHours) + (amazonRate * amazonHours) + (facebookRate * fbHours));
-
-
-    alert("Your total pay is $" + totalPay);
+function isOdd(x) {
+    if (x % 2 !== 0) {
+        return true
+        } else {
+        return false }
 }
 
-payMe()
+console.log(isOdd(8));
+console.log(isOdd(11));
 
+// Make a function named identity(input) that returns the input exactly as provided.
 
-// ex 3.3
-// A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with her current schedule.
+function identity(x) {
+    return x
+}
 
-var classIsFull = confirm("Is the class full?");
-var schedConflict = confirm("Does it conflict with your schedule?");
+console.log(identity(2));
+console.log(identity('woof'));
+console.log(identity(true));
 
-function canEnroll() {
-    if ((classIsFull === true) || (schedConflict === true)) {
-        alert("Unfortunately you cannot sign up for this class");
+// Make a function named isFive(input)
+
+function isFive(x) {
+    if (x === 5) {
+    return true
     } else {
-        alert("Great, you can sign up for the class!");
+    return false
     }
 }
-canEnroll();
+
+console.log(isFive(3));
+console.log(isFive(5));
+console.log(isFive(-5));
+
+// Make a function named addFive(input) that adds five to some input.
+
+function addFive(x) {
+    return x + 5;
+}
+
+console.log(addFive(5));
+console.log(addFive(11));
+console.log(addFive(-5));
+
+// Make a function named isMultipleOfFive(input)
+
+function isMultipleOfFive(x) {
+    if (x % 5 === 0) {
+        return true
+        } else {
+        return false
+    }
+}
+
+console.log(isMultipleOfFive(105));
+console.log(isMultipleOfFive(99));
+console.log(isMultipleOfFive(-45));
 
 
-// Ex 3.4
-// A product offer can be applied only if a person buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
+function isFive(x) {
+    if (x === 5) {
+        return true
+        } else {
+        return false
+    }
+}
 
-var cart = parseInt(prompt("How many items are in your cart?"));
-var premMember = confirm("Are you a premium member?");
+// Make a function named isThree(input)
 
-function getsDiscount() {
-    if ((cart > 2) || (premMember === true)) {
-        alert("Great, you get the discount, dawg");
+
+function isThree(x) {
+    if (x === 3) {
+        return true
+        } else {
+        return false
+    }
+}
+
+console.log(isThree(3));
+console.log(isThree(5));
+console.log(isThree(-5));
+
+// Make a function named isMultipleOfThree(input)
+
+function isMultipleOfThree(x) {
+    if (x % 3 === 0) {
+        return true
+        } else {
+        return false
+    }
+}
+
+console.log(isMultipleOfThree(105));
+console.log(isMultipleOfThree(99));
+console.log(isMultipleOfThree(8));
+
+// Make a function named isMultipleOfThreeAndFive(input)
+
+function isMultipleOfThreeAndFive(x) {
+    if (x % 3 === 0 && x % 5 === 0) {
+        return true
+        } else {
+        return false
+    }
+}
+
+console.log(isMultipleOfThreeAndFive(105));
+console.log(isMultipleOfThreeAndFive(99));
+console.log(isMultipleOfThreeAndFive(10));
+
+// Make a function named isMultipleOf(target, n) which checks if target is evenly divisible by n
+
+function isMultipleOf(target, multiple) {
+    if (target % multiple === 0) {
+        return true;
+        } else {
+        return false }
+}
+
+console.log(isMultipleOf(9, 3));
+console.log(isMultipleOf(7, 2));
+console.log(isMultipleOf(100, 5));
+
+// Make a function named isTrue(boolean)
+
+function isTrue(x) {
+    if (x === true) {
+        return true
+        } else {
+        return false
+    }
+}
+
+console.log(isTrue(true));
+console.log(isTrue(false));
+
+// Make a function named isFalse(boolean)
+
+function isFalse(x) {
+    if (x === false) {
+        return true
     } else {
-        alert("No discount for you!");
-    }
-}
-getsDiscount();
-
-
-// ex 4
-
-var username = prompt("Username:");
-var password = prompt("Password:");
-
-
-function validityTest() {
-    if (password.length >= 5 &&
-    password.indexOf(username) === -1 &&
-        username.length <= 20 &&
-        username === username.trim() &&
-        password === password.trim()) {
-        alert("Your credentials are valid") }
-    else {
-        alert("Your credentials are no good!");
+        return false
     }
 }
 
-validityTest();
+console.log(isFalse(true));
+console.log(isFalse(false));
+
+// Make a function named isTruthy(input), remember that values other than true will behave like true
+
+function isTruthy(x){
+    if(testNumber){
+        return("truth")
+    }else{
+        return("falsey")
+    }
+
+
+//
+//
+//     if (x === false || x === 0 || x === 0n || x === "" || x === null || x === undefined || x == NaN) {
+//         return false
+//     } else {
+//         return true
+//     }
+// }
+
+console.log(isTruthy(23444));
+console.log(isTruthy(false));
+console.log(isTruthy(""));
+console.log(isTruthy(null));
+console.log(isTruthy(NaN));
+console.log(isTruthy(undefined));
+
+
+// (i.e., except for false, 0, 0n, "", null, undefined, and NaN).
