@@ -141,3 +141,15 @@ function greaterThanfive() {
 // console.log(greaterThanfive(9));
 
 
+// write a js function that returns the message 'hello there, stranger." alert the return from this function. refactor so that it returns "Hello there,"
+// concatenated to an argument. prompt the user to input a string, call the function, and alert the return. refactor so that the function has 'stranger'
+// as a default parameter
+
+
+
+function heyStranger(name = "stranger") {
+    var name = prompt("What's your name??'); }
+     alert("Hey there, " + name);
+}
+
+
