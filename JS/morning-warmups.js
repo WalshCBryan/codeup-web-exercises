@@ -147,9 +147,12 @@ function greaterThanfive() {
 
 
 
-function heyStranger(name = "stranger") {
-    var name = prompt("What's your name??'); }
+function heyStranger(name="stranger") {
+    var name = prompt("What's your name??");
      alert("Hey there, " + name);
 }
+
+// if no name is passed, should alert "hey there, stranger" but instead alerts "hey there, _______"
+
 
 
