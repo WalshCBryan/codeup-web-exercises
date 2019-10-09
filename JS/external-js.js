@@ -254,22 +254,23 @@ console.log(isFalse(false));
 
 // Make a function named isTruthy(input), remember that values other than true will behave like true
 
-function isTruthy(x){
-    if(testNumber){
-        return("truth")
-    }else{
-        return("falsey")
-    }
-
-
-//
-//
-//     if (x === false || x === 0 || x === 0n || x === "" || x === null || x === undefined || x == NaN) {
-//         return false
+// function isTruthy(x) {
+//     if (x) {
+//         return ("truth")
 //     } else {
-//         return true
+//         return ("falsey")
 //     }
 // }
+//
+//
+
+function isTruthy(x) {
+    if (x === false || x === 0 || x === 0n || x === "" || x === null || x === undefined || x === NaN) {
+        return ("falsey")
+    } else {
+        return ("truthy")
+    }
+}
 
 console.log(isTruthy(23444));
 console.log(isTruthy(false));

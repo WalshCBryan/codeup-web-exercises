@@ -147,7 +147,7 @@ function greaterThanfive() {
 
 
 
-function heyStranger(name="stranger") {
+function heyStranger(name= "stranger" ) {
     var name = prompt("What's your name??");
      alert("Hey there, " + name);
 }
