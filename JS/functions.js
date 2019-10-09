@@ -9,9 +9,9 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
-// function sayHello(name) {
-//     return ("Hello, " + name + "!")
-// }
+function sayHello(name) {
+    return ("Hello, " + name + "!")
+}
 
 /**
  * TODO:
@@ -21,8 +21,8 @@
  * console.log 'helloMessage' to check your work
  */
 
-// var helloMessage = sayHello("Bryan");
-// console.log(helloMessage);
+var helloMessage = sayHello("Bryan");
+console.log(helloMessage);
 
 /**
  * TODO:
@@ -31,9 +31,9 @@
  * console.
  */
 
-// var myName = ("Bryan");
-//
-// console.log(sayHello(myName));
+var myName = ("Bryan");
+
+console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -51,10 +51,10 @@ function isTwo(x) {
         return true
     } else return false
 }
-//
-// console.log(isTwo(1));
-// console.log(isTwo(2));
-// console.log(isTwo(3));
+
+console.log(isTwo(1));
+console.log(isTwo(2));
+console.log(isTwo(3));
 
 
 
@@ -86,9 +86,9 @@ function calculateTip(tip, total) {
     return alert("You should tip $" + ((tip/100) * total) + ".");
 }
 
-// console.log(calculateTip(.2, 20));
-// console.log(calculateTip(.25, 25.50));
-// console.log(calculateTip(.15, 33.42));
+console.log(calculateTip(.2, 20));
+console.log(calculateTip(.25, 25.50));
+console.log(calculateTip(.15, 33.42));
 
 /*
  * Examples:
