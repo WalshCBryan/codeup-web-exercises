@@ -7,27 +7,42 @@
  * number, then use 3 separate alerts to tell the user:
  */
 
+//1. need to confirm if user wants to enter a number(function should end if they don't want to enter a number)
+//2. if they click yes, we need to prompt for a number
+//3. need to check if input is NaN
+//4. iIf input is a number, num = even or odd, num + 100, and num = pos or neg.
+//5. If input is NaN, alert user
+
 
 function numberGame() {
     var wantsToPlay = confirm("would you like to enter a number?");
+    // console log below log whether or not user wants to play
+    console.log(("user wants to play: " + wantsToPlay));
     if (wantsToPlay === false) {
         return (alert("what, you don't want to play???"));
     } else {
-        var num = parseInt(prompt("Give me a number, any number"));
+        var num = parseInt(prompt("Give me a number, any number!"));
+        //console logs below display if user entered a number and, if so, what the number is
+        console.log(("User entered a number: " + (!isNaN(num))));
+        console.log(("User entered: " + num));
     }
 
+// kicks user if input is NaN
     if (isNaN(num)) {
-        return (alert("That's NOT a number!!"));
+        return (alert("Hey, that's NOT a number!!"));
     }
 
+//odd or even
     if (num % 2 === 0) {
             alert("your number is even.");
     } else {
         alert("your number is odd.");
     }
 
+//num + 100
     alert("your number plus 100 is " + (num + 100) + ".");
 
+//positive or negative
     if (num >= 0) {
         alert("your number is positive.")
     } else {
@@ -66,8 +81,6 @@ function numberGame() {
  * console.logging the function's return value
  */
 // var color = prompt("give me a color as long as it's red, blue or cyan ;)");
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 function analyzeColor(inputColor) {
     // var color = prompt("give me a color as long as it's red, blue or cyan ;)");
@@ -104,6 +117,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message everytime you refresh the page
  */
 
+console.log(randomColor);
 console.log(analyzeColor(randomColor));
 
 
@@ -133,8 +147,6 @@ function randomizeTheColor(inputColors) {
             return "i dont know that color";
     }
 }
-
-// console.log(randomizeTheColor(colors));
 
 
 /**
@@ -169,7 +181,7 @@ alert(analyzeColor(userColor));
 
     function calculateTotal(luckyNumber, total) {
         var luckyNumber = Math.floor(Math.random() * 6);
-        var total = parseInt(prompt("How much is your current total??"));
+        var total = parseFloat(prompt("How much is your current total??"));
         if (luckyNumber = 0) {
             return (alert("sorry, no discount today! Your total is still: $" + total));
         } else if (luckyNumber = 1) {
@@ -205,8 +217,13 @@ alert(analyzeColor(userColor));
      */
 // // Generate a random number between 0 and 6
 //
-    function showMeTheDeets() {
-        parseFloat(calculateTotal());
+var luckyNumber = Math.floor(Math.random() * 6);
+console.log(luckyNumber);
+var total = parseFloat(prompt("How much is your current total??"));
+
+
+function showMeTheDeets() {
+        parseFloat(calculateTotal(luckyNumber, total));
         alert("original total " + total);
         alert("Your lucky number was " + luckyNumber);
     }
