@@ -264,8 +264,9 @@ console.log(isFalse(false));
 //
 //
 
+
 function isTruthy(x) {
-    if (x === false || x === 0 || x === 0n || x === "" || x === null || x === undefined || x === NaN) {
+    if (x === false || x === 0 || x === 0n || x === "" || x === null || x === undefined || isNaN(x)) {
         return ("falsey")
     } else {
         return ("truthy")
@@ -281,3 +282,74 @@ console.log(isTruthy(undefined));
 
 
 // (i.e., except for false, 0, 0n, "", null, undefined, and NaN).
+
+// Make a function named isFalsy(input), remember that values other than false behave like false
+
+function isFalsy(x) {
+    if (x === false || x === 0 || x === 0n || x === "" || x === null || x === undefined || isNaN(x)) {
+        return ("truthy")
+    } else {
+        return ("falsy")
+    }
+}
+
+console.log(isFalsy(23444));
+console.log(isFalsy(false));
+console.log(isFalsy(""));
+console.log(isFalsy(null));
+console.log(isFalsy(NaN));
+console.log(isFalsy(undefined));
+
+// Make a function named isVowel(letter)
+
+function isVowel(x) {
+    if(x == "A" || x == "E" || x == "I" || x == "O" || x == "U" || x == "a" || x == "e" || x == "i" || x == "o" || x == "u" ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//can use String() or toString()?
+
+console.log(isVowel("a"));
+console.log(isVowel("b"));
+console.log(isVowel(2));
+console.log(isVowel(null));
+console.log(isVowel("octopus"));
+
+// Make a function named isConsonant(letter)
+
+// function isConsonant(x) {
+//     if(x == "A" || x == "E" || x == "I" || x == "O" || x == "U" || x == "a" || x == "e" || x == "i" || x == "o" || x == "u" ) {
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
+
+//this doesnt work because conditions against aeiou/AEIOU only, not consonants
+
+console.log(isConsonant("a"));
+console.log(isConsonant("b"));
+console.log(isConsonant(2));
+console.log(isConsonant(null));
+console.log(isConsonant("octopus"));
+
+
+// Make a function called returnTwo() that returns the number 2 when called
+// Test this function with console.log(returnTwo())
+
+function returnTwo() {
+    return (2);
+}
+console.log(returnTwo());
+
+// Write a function called identity(input) that takes in an argument called input and returns that input.
+
+function identity(input) {
+   var newInput =  String(input);
+   return (newinput);
+}
+
+console.log(identity(input));
