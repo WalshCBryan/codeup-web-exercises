@@ -94,9 +94,10 @@
 function isEven(x) {
     if (x % 2 ==0) {
         return true
-        } else {
-        return false }
+    } else {
+        return false
     }
+}
 
 console.log(isEven(8));
 console.log(isEven(11));
@@ -106,8 +107,13 @@ console.log(isEven(11));
 function isOdd(x) {
     if (x % 2 !== 0) {
         return true
-        } else {
-        return false }
+    } else {
+        return false
+    }
+}
+
+function isOdd(x) {
+    return x % 2 !== 0;
 }
 
 console.log(isOdd(8));
@@ -116,7 +122,7 @@ console.log(isOdd(11));
 // Make a function named identity(input) that returns the input exactly as provided.
 
 function identity(x) {
-    return x
+    return x;
 }
 
 console.log(identity(2));
@@ -127,9 +133,9 @@ console.log(identity(true));
 
 function isFive(x) {
     if (x === 5) {
-    return true
+        return true
     } else {
-    return false
+        return false
     }
 }
 
@@ -142,6 +148,8 @@ console.log(isFive(-5));
 function addFive(x) {
     return x + 5;
 }
+
+
 
 console.log(addFive(5));
 console.log(addFive(11));
@@ -303,6 +311,7 @@ console.log(isFalsy(undefined));
 // Make a function named isVowel(letter)
 
 function isVowel(x) {
+
     if(x == "A" || x == "E" || x == "I" || x == "O" || x == "U" || x == "a" || x == "e" || x == "i" || x == "o" || x == "u" ) {
         return true;
     } else {
@@ -330,11 +339,11 @@ console.log(isVowel("octopus"));
 
 //this doesnt work because conditions against aeiou/AEIOU only, not consonants
 
-console.log(isConsonant("a"));
-console.log(isConsonant("b"));
-console.log(isConsonant(2));
-console.log(isConsonant(null));
-console.log(isConsonant("octopus"));
+// console.log(isConsonant("a"));
+// console.log(isConsonant("b"));
+// console.log(isConsonant(2));
+// console.log(isConsonant(null));
+// console.log(isConsonant("octopus"));
 
 
 // Make a function called returnTwo() that returns the number 2 when called
@@ -348,8 +357,8 @@ console.log(returnTwo());
 // Write a function called identity(input) that takes in an argument called input and returns that input.
 
 function identity(input) {
-   var newInput =  String(input);
-   return (newinput);
+   // var newInput =  String(input);
+   return (input);
 }
 
-console.log(identity(input));
+console.log(identity("xyz"));

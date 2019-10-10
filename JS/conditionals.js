@@ -69,28 +69,22 @@ function numberGame() {
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-function analyzeColor() {
+function analyzeColor(inputColor) {
     // var color = prompt("give me a color as long as it's red, blue or cyan ;)");
 
-    if (randomColor === "red") {
+    if (inputColor === "red") {
         return ("roses are red");
-    } else
-        if (randomColor === "orange") {
+    } else if (inputColor === "orange") {
         return ("oranges are orange");
-    } else
-        if (randomColor === "yellow") {
+    } else if (inputColor === "yellow") {
         return ("the sun is yellow");
-    } else
-        if (randomColor === "green") {
+    } else if (inputColor === "green") {
         return ("the grass is green");
-    } else
-        if (randomColor === "blue") {
+    } else if (inputColor === "blue") {
         return ("the sky is blue");
-    } else
-        if (randomColor === "indigo") {
+    } else if (inputColor === "indigo") {
         return ("indigo is between blue and purple, like blurple");
-    } else
-        if (randomColor === "violet") {
+    } else if (inputColor === "violet") {
         return ("just a fancy name for purple?");
     } else
         return ("I don't know about that color");
@@ -118,9 +112,9 @@ console.log(analyzeColor(randomColor));
  * Refactor your above function to use a switch-case statement
  */
 
-function randomizeTheColor() {
+function randomizeTheColor(inputColors) {
     // var colors = randomColor;
-    switch (randomColor) {
+    switch (inputColors) {
         case "red":
             return "roses are still red";
         case "orange":
@@ -140,7 +134,7 @@ function randomizeTheColor() {
     }
 }
 
-console.log(randomizeTheColor(colors));
+// console.log(randomizeTheColor(colors));
 
 
 /**
@@ -150,8 +144,8 @@ console.log(randomizeTheColor(colors));
  * function to show it to the user.
  */
 
-// var userColor = prompt("give me a color, Roy G Biv");
-// alert(analyzeColor(userColor));
+var userColor = prompt("give me a color, Roy G Biv");
+alert(analyzeColor(userColor));
 
 
 

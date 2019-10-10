@@ -44,7 +44,7 @@
    console.log(sayHello("Bryan"))
 
 //  write a function that returns the first element of an array
-//   returns element at index pos 0 (first pos) using x[0]
+//  returns element at index pos 0 (first pos) using x[0]
 
          function firstElement(x) {
          return x[0];
@@ -147,10 +147,12 @@ function greaterThanfive() {
 
 
 
+// var userInput = prompt("What's your name??");
 function heyStranger(name="stranger") {
-    var name = prompt("What's your name??");
-     alert("Hey there, " + name);
+    alert("Hey there, " + name);
 }
+
+heyStranger("bryan");
 
 // if no name is passed, should alert "hey there, stranger" but instead alerts "hey there, _______"
 
