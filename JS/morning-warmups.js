@@ -156,5 +156,15 @@ heyStranger("bryan");
 
 // if no name is passed, should alert "hey there, stranger" but instead alerts "hey there, _______"
 
+// write a js function that accepts an array and returns length of that array
+
+function lengthOfArray(arr) {
+    return arr.length;
+}
+
+console.log(lengthOfArray([1,2,3,4,5,6,7,8,9]));
+console.log(lengthOfArray(["a","b","c","d","e","f"]));
+console.log(lengthOfArray([NaN, NaN, "hddhd"]));
+console.log(lengthOfArray([]));
 
 
