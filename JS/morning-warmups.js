@@ -167,4 +167,25 @@ console.log(lengthOfArray(["a","b","c","d","e","f"]));
 console.log(lengthOfArray([NaN, NaN, "hddhd"]));
 console.log(lengthOfArray([]));
 
+// write a js function hat returns the quotient of two numbers, but only when passed two numbers
+
+
+function quotient(x,y) {
+    if (typeof x === "number" && typeof y === "number") {
+        return x / y;
+    } else return false;
+}
+
+// function quotient(x,y) {
+//     if (!isNaN(x) && !isNaN(y)) {
+//         return x / y;
+//     } else return false;
+// }
+
+console.log(quotient(1, 2), .5);
+console.log(quotient(10, 5), 2);
+console.log(quotient(1, null), false);
+console.log(quotient("num1", 3), false);
+console.log(quotient(1,isNaN), false);
+
 
