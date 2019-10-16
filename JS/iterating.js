@@ -46,6 +46,8 @@
 names.forEach(function(name) {
     console.log("this one's name is " + name);
 });
+
+
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
