@@ -61,7 +61,6 @@ names.forEach(function(name) {
      */
 
 
-})();
 
 var numbers = [1, 2, 3, 4, 5];
 
@@ -76,6 +75,13 @@ function second() {
 function last() {
     console.log(numbers[numbers.length - 1]);
 }
+
+last(numbers);
+second(numbers);
+last(numbers);
+
+})();
+
 
 // console.log(numbers[0]);
 // console.log(numbers[1]);

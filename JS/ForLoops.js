@@ -32,8 +32,9 @@ function showMultiplicationTable(num) {
 // }
 
 function randomOdds() {
-    for (var x = 0; x <= 20; x++) {
-        randonNum = Math.floor(Math.random() * 50) + 1;
+    for (var x = 0; x <= 10; x++) {
+        randonNum = Math.floor(Math.random() * 180) + 20;
+        console.log("The random number is " + randonNum);
         if (randonNum % 2 === 0) {
             console.log(randonNum + " is even");
         } else {
@@ -64,9 +65,10 @@ function numberPyramid() {
         for (var z = 1; z <= i; z++) {
             num += i;
         } console.log(num);
-
     }
 }
+
+
 //how to get it to repeat same number instead of iterated number?
 
 function hundredToFive() {

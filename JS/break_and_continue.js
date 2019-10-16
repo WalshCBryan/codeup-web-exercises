@@ -3,30 +3,44 @@
 //     Your output should look like this:
 
 
-function oddsOnly() {
-do {
-    userNum = prompt("Name an odd number");
-} while (userNum % 2 === 0);
-userNum = parseFloat(userNum);
-console.log(userNum + "is the user's number");
-    for (var i = 0; i <= 50; i++) {
-        if (i % 2 !== 0) {
-            if (i === userNum) {
-                console.log(" skipping this number");
-                continue;
-            }
-            console.log(i + " is an odd number");
+// function oddsOnly() {
+// do {
+//     userNum = prompt("Name an odd number");
+// } while (userNum % 2 === 0);
+// // userNum = parseFloat(userNum);
+// console.log(userNum + " is the user's number");
+//     for (var i = 0; i <= 50; i++) {
+//         if (i % 2 !== 0) {
+//             if (i === userNum) {
+//                 console.log(" skipping this number");
+//                 continue;
+//             }
+//             console.log(i + " is an odd number");
+//         }
+//     }
+// }
+
+function oddsOnlyAlternate() {
+    while (true) {
+        var num = parseInt(prompt("give me a number between 1 and 50"));
+        if (num % 2 !== 0 && num <= 50 && num >= 0) {
+            break;
         }
     }
-}
-//
 
-//
-// else if (i % 2 === 0) {
-//     continue;
-// //
-// if (i == userNum) {
-//     console.log("skipping this number");
+    console.log("skipping the number " + num);
+
+    for (var q = 1; q <= 50; q += 2) {
+        if (q === num) {
+            console.log("skipping this one!");
+            continue;
+        }
+        console.log(q);
+    }
+}
+
+
+
 
 
 //
