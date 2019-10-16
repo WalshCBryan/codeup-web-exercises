@@ -35,16 +35,33 @@ var allCones = Math.floor(Math.random() * 50) + 50;
 // }
 // while (allCones > 0);
 
+// function sellingCones() {
+//     do {
+//         var coneSale = Math.floor(Math.random() * 5) + 1;
+//         allCones -= coneSale;
+//         console.log("You sold " + coneSale + " cones. You have " + allCones + " left");
+//         if (coneSale > allCones) {
+//             console.log("You cannot sell " + coneSale + ", You only have " + allCones + " left.")
+//         } else if (allCones - coneSale < 0) {
+//             console.log("You cannot sell " + coneSale + ", You only have " + allCones + " left.")
+//         }
+//
+//     } while (allCones > 0);
+//     console.log("You sold all of your cones!!");
+// }
 
-do {
-    var coneSale = Math.floor(Math.random() * 5) + 1;
-    allCones -= coneSale;
-    console.log("You sold " + coneSale + " cones.");
-    if (coneSale > allCones)
-    {console.log("You cannot sell " + coneSale + ", You only have " + allCones + " left.")
-    }
 
-} while (allCones > 0);
-console.log("You sold all of your cones!!");
+function sellingCones() {
+    do {
+        var coneSale = Math.floor(Math.random() * 5) + 1;
+        if (allCones >= coneSale) {
+            allCones -= coneSale;
+            console.log("You sold " + coneSale + " cones. You have " + allCones + " left");
+        } else if (coneSale > allCones || allCones - coneSale < 0) {
+            console.log("You cannot sell " + coneSale + ", You only have " + allCones + " left.")
+        }
+    } while (allCones > 0);
+    console.log("You sold all of your cones!!");
+}
 
 

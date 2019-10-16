@@ -10,8 +10,8 @@
 // } return(console.log("All done"));
 
 function showMultiplicationTable(num) {
-    for (i = 0; i <= 10; i++) {
-        console.log("" + num + " x " + i + " = " + (num * i));
+    for (i = 1; i <= 10; i++) {
+        console.log(num + " x " + i + " = " + (num * i));
 
     } return(console.log("All done"));
 }
@@ -59,10 +59,12 @@ function randomOdds() {
 // }
 
 function numberPyramid() {
-    var num = "";
     for (var i = 1; i <= 9; i++) {
-        num += i;
-        console.log(num);
+        var num = "";
+        for (var z = 1; z <= i; z++) {
+            num += i;
+        } console.log(num);
+
     }
 }
 //how to get it to repeat same number instead of iterated number?
