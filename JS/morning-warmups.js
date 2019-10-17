@@ -153,7 +153,7 @@ function greaterThanfive() {
 
 
 // var userInput = prompt("What's your name??");
-function heyStranger(name="stranger") {
+function heyStranger(name = "stranger") {
     alert("Hey there, " + name);
 }
 
@@ -196,7 +196,7 @@ console.log(quotient(1, isNaN), false);
 // function that takes an input and return true if input is a string at least 8 chars in length
 
 function stringTest(x) {
-    if (typeof (x) === "string" && x.length === 8) {
+    if (typeof (x) === "string" && x.length > 8) {
         return true
     } else return false
 }
