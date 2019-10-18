@@ -201,3 +201,10 @@ function stringTest(x) {
     } else return false
 }
 
+//write a function that takes in a floating point number and returns number rounded down
+
+function roundDown(x){
+    if (typeof(x) === "number" && !isNaN(x)) {
+        return Math.floor(x);
+    } else return false
+}
