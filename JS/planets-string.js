@@ -36,17 +36,14 @@
     // }
 
 
-    console.log(planetsString);
     planetsArray = planetsString.split('|');
     planetsString = planetsArray.join(' </li> <li>');
-    console.log(planetsString);
     planetsArray = planetsString.split(" ");
-    // console.log(planetsArray);
-    // planetsArray.unshift('<ul> \n <li>');
-    // planetsArray.push('</li> \n </ul>');
-    console.log(planetsArray);
+
     planetsArray = planetsString.split(',')
-    console.log("<ul> <li> " + planetsString + " </li> </ul>");
+  var done = ("<ul style='list-style-type: none; border: 1px solid black; border-radius: 5px; display: inline-block; background-color: lightgray; padding: '> <li> " + planetsString + " </li> </ul>");
+    console.log(done);
+    document.write(done);
 
     // planetsArray = planetsString.split(',')
     // console.log(planetsString);
