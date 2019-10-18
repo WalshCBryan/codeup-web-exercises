@@ -45,19 +45,6 @@
     console.log(done);
     document.write(done);
 
-    // planetsArray = planetsString.split(',')
-    // console.log(planetsString);
-
-
-    // console.log(planetsString);
-
-
-
-    // planetsString = planetsArray.join(', ');
-    // planetsArray.unshift('<ul>');
-    // planetsArray.push('</ul>');
-
-    // console.log(planetsArray);
 
 
 })();

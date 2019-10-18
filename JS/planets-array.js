@@ -17,7 +17,7 @@
      * Read each console log below, and write some javascript code to perform
      * the step that it describes
      */
-console.log(planets);
+    console.log(planets);
 
     console.log('Adding "The Sun" to the beginning of the planets array.');
     console.log(planets);
@@ -26,7 +26,7 @@ console.log(planets);
 
     console.log('Adding "Pluto" to the end of the planets array.');
     console.log(planets);
-    planets.push('pluto');
+    planets.push('Pluto');
 
 
     console.log('Removing "The Sun" from the beginning of the planets array.');

@@ -53,18 +53,51 @@
     var shoppers = [
         {
             name: 'Cameron',
-            amount: 180},
+            amount: 180
+        },
         {   name: 'Ryan',
-            amount: 250},
+            amount: 250
+        },
         {   name: 'George',
-            amount: 320}
+            amount: 320
+        }
     ];
 
-    shoppers.forEach(function(shopper) {
-        shoppers.name.forEach(function(name) {
-            console.log(name);
-        });
+    shoppers.forEach(function(shopper){
+       var discount = shopper.amount * .12;
+       var newtotal = shopper.amount - discount;
+        if (shopper.amount >= 200) {
+            console.log("great, for spending $" + shopper.amount + " you get a discount of $" + discount + ". New total is $" + newtotal);
+        } else
+            console.log("no discount for you. You still have a bill of $" + shopper.amount);
     });
+
+
+
+    // console.log("here are the names of the shoppers");
+    // shoppers.forEach(function(shopper) {
+    //     console.log(shopper.name);
+    // });
+
+
+
+
+
+    // shoppers.forEach(function(shopper) {
+    //     var discount = (shopper.amount * .12).toFixed(2);
+    //     var newTotal = (shopper.amount - discount).toFixed(2);
+    //     shopper.amount = shopper.amount.toFixed(2);
+    //     if (shopper.amount >= 200) {
+    //         console.log("Great, your bill is $" + shopper.amount + ". You receive a 12% discount of $" + discount + " which means your new total is $" + newTotal);
+    //     } else console.log("Sorry, you have not spent enough to be eligible for the discount. Your total is $" + shopper.amount);
+    // });
+
+
+    // shoppers.forEach(function(shopper) {
+    //     shoppers.name.forEach(function(name) {
+    //         console.log(name);
+    //     });
+    // });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -72,8 +105,53 @@
      * property. The author property should be an object with properties
      * `firstName` and `lastName`. Be creative and add at least 5 books to the
      * array
-     *
-     * Example:
+     */
+
+    var books = [
+        {
+            title: "Harry Potter",
+            author: {
+                firstName: "JK",
+                lastName: "Rowling"
+            }
+        },
+        {
+            title: "Cat's Cradle",
+            author: {
+                firstName: "Kurt",
+                lastName: "Vonnegut"
+            }
+        },
+        {
+            title: "A Clockwork Orange",
+            author: {
+                firstName: "Anthony",
+                lastName: "Burgess"
+            }
+        },
+        {
+            title: "The Unknown Self",
+            author: {
+                firstName: "CG",
+                lastName: "Jung"
+            }
+        },
+        {
+            title: "Hitchhiker's Guide to the Galaxy",
+            author: {
+                firstName: "Douglas",
+                lastName: "Adams"
+            }
+        }
+    ];
+
+
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
+
+
+    /* Example:
      * > console.log(books[0].title) // "The Salmon of Doubt"
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
@@ -86,7 +164,15 @@
      * - the book number (use the index of the book in the array)
      * - the book title
      * - author's full name (first name + last name)
-     *
+     */
+    books.forEach(function(book, index){
+        console.log("Book #" + (index + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("~~~~~~~~~~~~~");
+    });
+
+    /*
      * Example Console Output:
      *
      *      Book # 1
@@ -110,9 +196,44 @@
      *   name and returns a book object with the properties described
      *   previously. Refactor your code that creates the books array to instead
      *   use your function.
-     * - Create a function named `showBookInfo` that accepts a book object and
-     *   outputs the information described above. Refactor your loop to use your
-     *   `showBookInfo` function.
      */
 
+    function createBook(x,y) {
+       var y = y.split(" ");
+        books.push({
+            title: x,
+            author: {
+                firstName: y[0],
+                lastName: y[1]
+            }
+        })
+    }
+
+    console.log(books);
+    createBook("How to Survive a Sharknado", "Andrew Shaffer");
+    console.log(books);
+
+    // books.unshift({
+    //     title: "How To Survive A Sharknado",
+    //     author: {
+    //         firstName: "Andrew",
+    //         lastName: "Shaffer"
+    //     }
+    // });
+    // console.log(books)
+
+    /* - Create a function named `showBookInfo` that accepts a book object and
+    *   outputs the information described above. Refactor your loop to use your
+    *   `showBookInfo` function.
+    */
+
+    function showBookInfo(book) {
+        books.forEach(function(book) {
+            console.log(book.title);
+            console.log(book.author.firstName + " " + book.author.lastName);
+        })
+    }
+
+    showBookInfo(books);
 })();
+
