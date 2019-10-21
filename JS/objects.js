@@ -9,16 +9,12 @@
      */
 
     var person = {};
-    person.firstName = "Rick";
-    person.lastName = "Sanchez";
+    person.firstName = "Pickle";
+    person.lastName = "Rick";
 
     console.log(person.firstName);
     console.log(person.lastName);
 
-    /* Example:
-    *  > console.log(person.firstName) // "Rick"
-    *  > console.log(person.lastName) // "Sanchez"
-    */
 
     /**
      * TODO:

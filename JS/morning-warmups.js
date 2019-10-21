@@ -3,8 +3,8 @@
 //write a function that adds 2 numbers together
 
 function sumBoth(x) {
-    a = 3;
-    b = 2;
+   var a = 3;
+   var b = 2;
     return (a + b);
     console.log(a + b);
 }
@@ -20,8 +20,8 @@ console.log(sumAll(1, 8));
 //function to return area of triangle given 3 sides, Heron's formula
 
 function triArea(a, b, c) {
-    semi = (a + b + c) / 2;
-    area = Math.sqrt(semi * (semi - a) * (semi - b) * (semi - c));
+   var semi = (a + b + c) / 2;
+   var area = Math.sqrt(semi * (semi - a) * (semi - b) * (semi - c));
     return (area);
 }
 
@@ -159,7 +159,6 @@ function heyStranger(name = "stranger") {
 
 heyStranger("bryan");
 
-// if no name is passed, should alert "hey there, stranger" but instead alerts "hey there, _______"
 
 // write a js function that accepts an array and returns length of that array
 
@@ -207,4 +206,12 @@ function roundDown(x){
     if (typeof(x) === "number" && !isNaN(x)) {
         return Math.floor(x);
     } else return false
+}
+
+//write a function that counts from 1 up the the numbdr passed
+
+function upTo(x) {
+    for (var i = 1; i <= x; i++) {
+        console.log(i);
+    }
 }
