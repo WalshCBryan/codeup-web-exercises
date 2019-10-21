@@ -211,7 +211,9 @@ function roundDown(x){
 //write a function that counts from 1 up the the numbdr passed
 
 function upTo(x) {
+    console.log("counting up to " + x);
     for (var i = 1; i <= x; i++) {
         console.log(i);
     }
+    console.log("done counting");
 }
