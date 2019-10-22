@@ -25,6 +25,13 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="btn1">Is Javascript cool?</button>
+<button id="btn2">Do you like blue?</button>
+<button id="btn3">How about partially grey?</button>
+<button id="btn4">but with a little blue?</button>
+<button id="btn5">what if you dont like ipsum?></button>
+
+
 <script>
     (function () {
         "use strict";
@@ -32,39 +39,65 @@
         var mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "Javascript is Cool";
+        //on click
+
+        var headChange = function() {
+            mainHeader.innerHTML = "Javascript is Cool";
+        };
+        document.getElementById("btn1").addEventListener("click", headChange);
+
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue";
+        //on click
+        var blueHead = function() {
+            subHeader.style.color = "blue";
+        };
+
+        document.getElementById("btn2").addEventListener("click", blueHead);
+
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName("li");
 
         // TODO: Set text color on every other list item to grey
-
-        for (var i = 0; i < listItems.length; i++) {
-            if (i % 2 !== 0) {
-                listItems[i].style.color = "grey";
+        // on click
+        var halfGrey = function() {
+            for (var i = 0; i < listItems.length; i++) {
+                if (i % 2 !== 0) {
+                    listItems[i].style.color = "grey";
+                }
             }
-        }
+        };
+        document.getElementById("btn3").addEventListener("click", halfGrey);
 
         // document.getElementsByTagName("li")[0].getAttribute("data-dbid");
 
         // TODO: Set text color of li with dbid = 1 to blue
-        for (var i = 0; i < listItems.length; i++) {
-            if (listItems[i].getAttribute("data-dbid") === "1") {
-                listItems[i].style.color = "blue";
+        //on click
+        var blueFirst = function() {
+            for (var i = 0; i < listItems.length; i++) {
+                if (listItems[i].getAttribute("data-dbid") === "1") {
+                    listItems[i].style.color = "blue";
+                }
             }
-        }
+        };
+
+        document.getElementById("btn4").addEventListener("click", blueFirst);
+
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = "Mission Accomplished!";
+        //on click
+        var finale = function() {
+            subParagraphs[0].innerText = "Mission Accomplished!";
+        }
+        document.getElementById("btn5").addEventListener("click", finale);
+
 
     })();
 </script>
