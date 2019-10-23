@@ -218,3 +218,19 @@ function upTo(x) {
     console.log("done counting");
 }
 
+//write a function called ccreate perdson ghast takes an name (string) and an age (number) and returns a person object containing the name an age
+
+var personObject = [];
+
+function createPersonObject(x,y) {
+   if (typeof x === "string" && typeof y === "number")
+    personObject.push({
+        name: x,
+        age: y
+    })
+} console.log(personObject);
+
+createPersonObject("bill", 32);
+createPersonObject("amy", 55);
+createPersonObject("ted", 18);
+

@@ -29,7 +29,7 @@
 <button id="btn2">Do you like blue?</button>
 <button id="btn3">How about partially grey?</button>
 <button id="btn4">but with a little blue?</button>
-<button id="btn5">what if you dont like ipsum?></button>
+<button id="btn5">what if you don't like ipsum?</button>
 
 
 <script>
@@ -42,9 +42,14 @@
         //on click
 
         var headChange = function() {
-            mainHeader.innerHTML = "Javascript is Cool";
+            if (mainHeader.innerHTML === "Hello World!") {
+                mainHeader.innerHTML = "Javascript is Cool";
+            } else mainHeader.innerHTML = "Hello World!";
         };
+
+
         document.getElementById("btn1").addEventListener("click", headChange);
+
 
 
         // TODO: Uncomment the next line and get the sub header element by id
@@ -53,6 +58,7 @@
         // TODO: Set the text color of subHeader to blue
         //on click
         var blueHead = function() {
+
             subHeader.style.color = "blue";
         };
 
@@ -95,7 +101,7 @@
         //on click
         var finale = function() {
             subParagraphs[0].innerText = "Mission Accomplished!";
-        }
+        };
         document.getElementById("btn5").addEventListener("click", finale);
 
 
