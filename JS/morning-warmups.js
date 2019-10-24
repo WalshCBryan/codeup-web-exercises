@@ -234,3 +234,34 @@ createPersonObject("bill", 32);
 createPersonObject("amy", 55);
 createPersonObject("ted", 18);
 
+// fizzbuzz
+// Your program should count up to 100.
+// For numbers divisible by 3, log "Fizz"
+// For numbers divisible by 5, log "Buzz"
+// If divisible by 3 and 5, log "FizzBuzz"
+// All other cases, just log the number.
+
+function fizzBuzz(x) {
+    for (var x = 0; x <= 100; x++) {
+        if (x % 3 === 0 && x % 5 === 0) {
+        console.log(x + " FizzBuzz");
+        } else if (x % 5 === 0) {
+        console.log(x + " Buzz");
+        } else if (x % 3 === 0) {
+        console.log(x + " Fizz");
+        } else {
+        console.log(x);}
+    } return console.log("FizzBuzz :)");
+}
+
+function fizzbuzz2(){
+    for(var i=1; i<=100; i++) {
+        if (i % 15 === 0){
+            console.log("fizzbuzz");
+        } else if (i % 5 === 0){
+            console.log("buzz");
+        } else if (i % 3 ===0) {
+            console.log("fizz");
+        } else console.log(i);
+    } return console.log("Fizzbuzz!! :)");
+}

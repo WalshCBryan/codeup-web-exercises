@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox API practice exercises</title>
+    <!--    mapbox styles    -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<!--<span>Zoom Levels<br></span>-->
+<!--<form id="zoomForm">-->
+<!--    <input id="zoom5" type="radio" name="zoom" value="5" checked> 5<br>-->
+<!--    <input id="zoom10" type="radio" name="zoom" value="10"> 10<br>-->
+<!--    <input id ="zoom15" type="radio" name="zoom" value="15"> 15<br>-->
+<!--</form>-->
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+
+    // var baohaus = geocode("baohaus nyc e 14th street", mapboxToken);
+
+    //for centering orig map--------->
+    var baohaus = [-73.985707, 40.732502];
+    // creating map ------------------->
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/navigation-guidance-night-v2\n',
+        zoom: 10,
+        center: baohaus
+    });
+    //popup options -------------->
+    var popupOptions = {
+        className: "popupBox"
+    };
+    // marker options ----------->
+    var markerOptions = {
+        color: "limegreen",
+        draggable: false
+    };
+
+    //restaurants array ------------->
+    var restaurants = [
+        {
+            name: "BaoHaus",
+            address: "238 East 14th St, New York, NY 10003"
+        },
+        {
+            name: "Katz's Deli (Closed :[)",
+            address: "205 E Houston St, New York, NY 10002"
+        },
+        {
+            name: "Roseland Apizza",
+            address: "350 Hawthorne Ave Derby, CT 06418"
+        }
+    ];
+    //looping through array ----------------------->
+    restaurants.forEach(function (restaurant) {
+        var results = "results";
+        console.log(restaurant);
+        geocode(restaurant.address, mapboxToken).then(function (results) {
+            console.log(results);
+            var popup = new mapboxgl.Popup(popupOptions)
+                .setText(restaurant.name);
+
+            new mapboxgl.Marker(markerOptions)
+                .setLngLat(results)
+                .setPopup(popup)
+                .addTo(map)
+        })
+    });
+
+    //individual geocodes ----------------------->
+
+    // geocode("238 East 14th St", mapboxToken).then(function (result) {
+    //     console.log(result);
+    //     new mapboxgl.Marker()
+    //         .setLngLat(result)
+    //         .addTo(map)
+    //         .setPopup(baohausPopup)
+    //         .addTo(map);
+    // });
+    //
+    // var baohausPopup = new mapboxgl.Popup(popupOptions)
+    // // .setLngLat(baohaus)
+    //     .setHTML("<p>Best steamed Bao sandwiches ever!</p>");
+
+    // geocode("205 E Houston St, New York, NY 10002", mapboxToken).then(function (result) {
+    //     console.log(result);
+    //     var katzsPopup = new mapboxgl.Popup(popupOptions)
+    //     // .setLngLat(baohaus)
+    //         .setHTML("<p>biggest sandwiches ever!</p>");
+    //     new mapboxgl.Marker()
+    //         .setLngLat(result)
+    //         .addTo(map)
+    //         .setPopup(katzsPopup)
+    //         .addTo(map);
+    // });
+    //
+    // geocode("350 Hawthorne Ave Derby, CT 0641", mapboxToken).then(function (result) {
+    //     console.log(result);
+    //     var roselandPopup = new mapboxgl.Popup(popupOptions)
+    //     // .setLngLat(baohaus)
+    //         .setHTML("<p>best pizza ever</p>");
+    //     new mapboxgl.Marker()
+    //         .setLngLat(result)
+    //         .addTo(map)
+    //         .setPopup(roselandPopup)
+    //         .addTo(map);
+    // });
+
+
+</script>
+</body>
+</html>
