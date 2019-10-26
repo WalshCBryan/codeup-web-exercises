@@ -153,9 +153,9 @@ function greaterThanfive() {
 
 
 // var userInput = prompt("What's your name??");
-function heyStranger(name = "stranger") {
-    alert("Hey there, " + name);
-}
+// function heyStranger(name ="stranger") {
+//     alert("Hey there, " + name);
+// }
 
 heyStranger("bryan");
 
@@ -265,3 +265,5 @@ function fizzbuzz2(){
         } else console.log(i);
     } return console.log("Fizzbuzz!! :)");
 }
+
+var testarray = ['John', 'Paul', 'George', 'Ringo', 'Santana'];

@@ -126,6 +126,7 @@ function washCars(cars) {
     console.log(cars);
 }
 
+
 // Write a function, adminList() that takes in an array of user objects and returns a count of all admins based on the isAdmin property. Refactor to return an array of admin-only user emails. Refactor again to return an array of user objects that are admins.
 
 var credentials = [
@@ -166,6 +167,24 @@ function adminEmails(credentials) {
         }
     });
     console.log(admins);
+}
+
+
+
+
+function h4ck3rSp3ak(x) {
+    var str = x.toLowerCase();
+    str = str.replace("a", "4");
+    str = str.replace("e", "3");
+    str = str.replace("i", "1");
+    str = str.replace("o", "0");
+    str = str.replace("s", "5");
+    str = str.replace("t", "7");
+    str = str.replace("b", "8");
+    str = str.replace("c", "(");
+    str = str.replace("g", "6");
+    str = str.replace("z", "2");
+    document.write(str);
 }
 
 
