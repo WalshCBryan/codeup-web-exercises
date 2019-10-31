@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body style="overflow: hidden">
+
+<div id="TV"
+     style="width: 100%; height: 100%; margin-left: 10%; margin-right: 10%; background-image: url('videoGameAssets/TV1.png'); background-size: contain; background-repeat: no-repeat; z-index: 1; position: absolute;">
+</div>
+
+<!--appears after a correct cheat has been input-->
+<div style="width: 1000px; height: 600px; position: absolute; top: -25px; left: 40px">
+    <div id="cheatOutcome"></div>
+</div>
+
+<!--shows user input-->
+<div style="height: 150px; width: 150px; left: 275px; bottom: 370px; position:absolute">
+    <div id="output"></div>
+</div>
+
+<div>
+<!--    <img src="videoGameAssets/background1.png" id="whitewall">-->
+
+</div>
+
+<div id="hidden"
+     style="position: absolute; width: 300px; top: 15px; right: 15px; background-color: black; color: white; font-family: monospace; border: 5px solid red; border-radius: 5px; display: none">
+    <ul>
+        <h1>GAME INFORMER</h1>
+        <li>Konami: UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A START</li>
+        <li>Mortal Kombat: A B A C A B B</li>
+        <li>Metal Gear Solid: UP UP UP DOWN DOWN DOWN A B C</li>
+        <li>Mario Kart: L R L R L L R R A</li>
+    </ul>
+</div>
+
+<div id="hidden2" style="position: center; display: none; color: red; font-size: 90px; padding-top: 10%; text-shadow: 2px 2px black">
+    <h1>CHEATER!!!!</h1>
+    <h3>And remember...You Cheated Not Only the Game, But Yourself</h3>
+
+</div>
+
+<div id="animate" style="display: none; z-index: -5; top: 300px">
+    <img src="videoGameAssets/redshell.png" id='shell' style="height:150px; width: 150px; display: none;">
+</div>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        z-index: 3;
+    }
+
+    #shell{
+        z-index: -5;
+    }
+
+    #hidden2{
+        position: relative;
+    }
+
+    #whitewall {
+        z-index: -10;
+        height: 100%;
+        width: 100%
+    }
+
+    #animate {
+        /*background-image: url("videoGameAssets/redshell.png");*/
+        position: relative;
+        /*border: 1px solid green;*/
+        /*background: yellow;*/
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+
+<!--<script src="/js/jquery.js"></script>-->
+<script>
+    "use strict";
+
+    $("#output").html("<img src='videoGameAssets/controller.png'>");
+    $("#output").css({"height": "200px", "width": "200px"});
+
+    // $("#cheatOutcome").html("<img src='videoGameAssets/cheatcodes.png'>");
+    // $("#cheatOutcome").css({
+    //     "height": "200px",
+    //     "width": "200px",
+    //     "position": "absolute",
+    //     "top": "150px",
+    //     "left" : "360px"
+
+
+    // });
+
+
+
+    $(document).keyup(function (event) {
+        console.log(event.key);
+    });
+
+    // a key map of allowed keys
+    var allowedKeys = {
+        ArrowLeft: 'left',
+        ArrowUp: 'up',
+        ArrowRight: 'right',
+        ArrowDown: 'down',
+        a: 'a',
+        b: 'b',
+        c: 'c',
+        l: 'l',
+        r: 'r',
+        Enter: 'enter'
+    };
+
+    // the 'official' Konami Code sequence
+    var cLeft = ['left'];
+    var cUp = ['up'];
+    var cRight = ['right'];
+    var cdown = ['down'];
+    var cA = ['a'];
+    var cB = ['b'];
+    var cC = ['c'];
+    var cL = ['l'];
+    var cR = ['r'];
+    var cEnter = ['enter'];
+    var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+    var mortalKombatCode = ['a', 'b', 'a', 'c', 'a', 'b', 'b'];
+    var marioKartCode = ['l', 'r', 'l', 'r', 'l', 'l', 'r', 'r', 'a'];
+    var metalGearCode = ['up', 'up', 'up', 'down', 'down', 'down', 'a', 'b', 'c'];
+    var hiddenCode = ['up', 'down', 'left', 'right', 'up', 'down', 'left', 'right', 'b', 'a', 'b', 'a'];
+
+    // a variable to remember the 'position' the user has reached so far.
+    var codePosition = 0;
+    var hiddenCodePosition = 0;
+    var konamiCodePosition = 0;
+    var mortalKombatCodePosition = 0;
+    var marioKartCodePosition = 0;
+    var metalGearCodePosition = 0;
+
+
+    document.addEventListener('keydown', function (e) {
+        var key = allowedKeys[e.key];
+        if (key === "left") {
+            $("#output").html("<img src='videoGameAssets/dpadleft.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+            });
+
+        } else if (key === "right") {
+            $("#output").html("<img src='videoGameAssets/dpadright.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "up") {
+            $("#output").html("<img src='videoGameAssets/dpadup.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "down") {
+            $("#output").html("<img src='videoGameAssets/dpaddown.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "a") {
+            $("#output").html("<img src='videoGameAssets/abutton.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '75%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "b") {
+            $("#output").html("<img src='videoGameAssets/bbutton.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '75%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "c") {
+            $("#output").html("<img src='videoGameAssets/cbutton.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '75%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "l") {
+            $("#output").html("<img src='videoGameAssets/lbutton.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "r") {
+            $("#output").html("<img src='videoGameAssets/rbutton.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+
+            });
+
+        } else if (key === "enter") {
+            $("#output").html("<img src='videoGameAssets/startbutton.png' class='controllerInputs'>");
+            $(".controllerInputs").css({
+                'height': '100%',
+                'width': '100%',
+                'margin-left': '85%',
+                'margin-top': '60%',
+                'border-radius': '50%'
+
+            });
+
+        }
+
+    });
+
+    $(".controllerInputs").css({'height': '50%', 'width': '50%'});
+
+
+    // for konami code
+    // add keydown event listener
+    document.addEventListener('keydown', function (e) {
+        // get the value of the key code from the key map
+        var key = allowedKeys[e.key];
+        // get the value of the required key from the konami code
+        var requiredKey = konamiCode[konamiCodePosition];
+
+        // compare the key with the required key
+        if (key == requiredKey) {
+
+            // move to the next key in the konami code sequence
+            konamiCodePosition++;
+
+            // if the last key is reached, activate cheats
+            if (konamiCodePosition == konamiCode.length) {
+                activateKonami();
+                konamiCodePosition = 0;
+            }
+        } else {
+            konamiCodePosition = 0;
+        }
+    });
+
+    //runs when konami code is input correctly
+    function activateKonami() {
+        $("#cheatOutcome").css({
+            'background-image': "url('videoGameAssets/konamiLogo.png')",
+            'background-size': 'contain',
+            'background-repeat': 'no-repeat',
+            'height': '100%',
+            'width': '100%',
+            'position': 'absolute',
+            'left': '225px',
+            // 'padding-bottom': '80%',
+            'z-index': '5',
+            'top': '-70px'
+        });
+        var konami = new Audio('videoGameAssets/konami_logo.mp3');
+        konami.play();
+        alert("30 Extra Lives!!");
+    }
+
+    //mortal kombat
+    document.addEventListener('keydown', function (e) {
+        var key = allowedKeys[e.key];
+        var requiredKey = mortalKombatCode[mortalKombatCodePosition];
+        if (key == requiredKey) {
+            mortalKombatCodePosition++;
+            if (mortalKombatCodePosition == mortalKombatCode.length) {
+                activateMK();
+                mortalKombatCodePosition = 0;
+            }
+        } else {
+            mortalKombatCodePosition = 0;
+        }
+    });
+
+    function activateMK() {
+        $("#cheatOutcome").css({
+            'background-image': "url('videoGameAssets/mklogo.jpg')",
+            'background-size': 'contain',
+            'background-repeat': 'no-repeat',
+            'height': '400px',
+            'width': '400px',
+            'position': 'absolute',
+            'left': '340px',
+            'top': '150px',
+            'z-index': '5',
+            'border-radius': '10px'
+        });
+        var audio = new Audio('videoGameAssets/MKtoasty.mp3');
+        audio.play();
+        alert("Toasty!!!");
+    }
+
+    //mario kart
+    document.addEventListener('keydown', function (e) {
+        var key = allowedKeys[e.key];
+        var requiredKey = marioKartCode[marioKartCodePosition];
+        if (key == requiredKey) {
+            marioKartCodePosition++;
+            if (marioKartCodePosition == marioKartCode.length) {
+                activateMario();
+                marioKartCodePosition = 0;
+            }
+        } else {
+            marioKartCodePosition = 0;
+        }
+    });
+
+
+    function activateMario() {
+        $("#cheatOutcome").css({
+            'background-image': "url('videoGameAssets/mariokartlogo.png')",
+            'background-size': 'contain',
+            'background-repeat': 'no-repeat',
+            'height': '300px',
+            'width': '500px',
+            'position': 'absolute',
+            'left': '250px',
+            'top': '150px',
+            'z-index': '5',
+            'border-radius': '10px'
+        });
+        var audio = new Audio('videoGameAssets/marioKart.mp3');
+        audio.play();
+        alert("Welcome to Mario Kart!!!");
+        $("#animate").toggle();
+        $("#shell").toggle();
+
+        var width = "+=" + $(document).width();
+        $("#animate").animate({
+            left: width
+        }, 5000, function () {
+            // Animation complete.
+        });
+    }
+
+    //metal gear
+    document.addEventListener('keydown', function (e) {
+        var key = allowedKeys[e.key];
+        var requiredKey = metalGearCode[metalGearCodePosition];
+        if (key == requiredKey) {
+            metalGearCodePosition++;
+            if (metalGearCodePosition == metalGearCode.length) {
+                activateSnake();
+                metalGearCodePosition = 0;
+            }
+        } else {
+            metalGearCodePosition = 0;
+        }
+    });
+
+
+    function activateSnake() {
+        $("#cheatOutcome").css({
+            'background-image': "url('videoGameAssets/snake.gif')",
+            'background-size': 'contain',
+            'background-repeat': 'no-repeat',
+            'height': '300px',
+            'width': '300px',
+            'position': 'absolute',
+            'left': '375px',
+            'top': '150px',
+            'z-index': '5',
+            'border-radius': '10px'
+        });
+        var audio = new Audio('videoGameAssets/metalgear.mp3');
+        audio.play();
+        alert("Snake!?! Snaaaaaaaaaaakkkkeeeeeee!!!!!!");
+    }
+
+
+    document.addEventListener('keydown', function (e) {
+        var key = allowedKeys[e.key];
+        var requiredKey = hiddenCode[hiddenCodePosition];
+        if (key == requiredKey) {
+            hiddenCodePosition++;
+            if (hiddenCodePosition == hiddenCode.length) {
+                $("#hidden").toggle("explode");
+                $("#hidden2").toggle();
+                var width = "+=" + $(document).width();
+                $("#hidden2").animate({
+                    left: width
+                }, 15000, function () {
+                    // Animation complete.
+                });
+
+            }
+        }
+    });
+
+    //clears local storage
+    function clearAllCoffees() {
+        localStorage.clear();
+    }
+    // $(document).ready(function(e) {
+    //     var width = "+=" + $(document).width();
+    //     $("#animate").animate({
+    //         left: width
+    //     }, 5000, function() {
+    //         // Animation complete.
+    //     });
+    // });
+
+
+</script>
+</body>
+</html>

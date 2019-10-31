@@ -157,7 +157,7 @@ function greaterThanfive() {
 //     alert("Hey there, " + name);
 // }
 
-heyStranger("bryan");
+// heyStranger("bryan");
 
 
 // write a js function that accepts an array and returns length of that array
@@ -267,3 +267,170 @@ function fizzbuzz2(){
 }
 
 var testarray = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
+
+// write a javascript function that returns the cart with the most oranges
+
+var shoppingCarts = [
+    {
+        apples: 8,
+        bananas: 2,
+        oranges: 4,
+        grapes: 24
+    }, {
+        apples: 3,
+        bananas: 6,
+        oranges: 8,
+        grapes: 12
+    } , {
+        apples: 0,
+        bananas: 12,
+        oranges: 0,
+        grapes: 0
+    } , {
+        apples: 4,
+        bananas: 0,
+        oranges: 12,
+        grapes: 10
+    }
+];
+
+
+
+// function mostOranges(arr) {
+//     var winner = arr[0];
+//     shoppingCarts.forEach(function (shoppingCart) {
+//         if (shoppingCart.oranges > winner.oranges) {
+//             winner = shoppingCart;
+//         }
+//     });
+//     return console.log(winner);
+// }
+
+function mostOranges(carts) {
+    var solution = [];
+    var winner = carts[0];
+    carts.forEach(function (cart, index) {
+        if (cart.oranges > winner.oranges) {
+            winner = cart;
+        }
+
+    });
+        return console.log(winner);
+
+}
+mostOranges(shoppingCarts);
+
+
+
+
+var shoppers = [
+    {
+        name: 'Cameron',
+        amount: 180
+    },
+    {   name: 'Ryan',
+        amount: 250
+    },
+    {   name: 'George',
+        amount: 320
+    }
+];
+
+shoppers.forEach(function(shopper){
+    var discount = shopper.amount * .12;
+    var newtotal = shopper.amount - discount;
+    if (shopper.amount >= 200) {
+        console.log("great, for spending $" + shopper.amount + " you get a discount of $" + discount + ". New total is $" + newtotal);
+    } else
+        console.log("no discount for you. You still have a bill of $" + shopper.amount);
+});
+
+//write a function that accepts an array of students and reutrns array of students no regstered for class
+
+var students = [
+    {
+        name: "Mary",
+        grade: 10,
+        gpa: 3.7,
+        isRegistered: true
+    },
+    {
+        name: "Tim",
+        grade: 12,
+        gpa: 3.2,
+        isRegistered: false
+    },
+    {
+        name: "Ellie",
+        grade: 9,
+        gpa: 4.0,
+        isRegistered: false
+    },
+    {
+        name: "Alex",
+        grade: 10,
+        gpa: 3.9,
+        isRegistered: true
+    }
+];
+
+function checkRegistration(arr){
+    var newArr = [];
+    for( var i=0; i < arr.length; i++) {
+        if (arr[i].isRegistered === false) {
+           newArr.push(arr[i])
+        }
+    } return newArr
+}
+
+// console.log(checkRegistration(students));
+
+// write a java script that returns an array of hampser object sorted by height
+
+var hamsters = [
+    {
+        name: "Hamtaro",
+        heightInMM: 86,
+        fur: ['orange', 'white'],
+        gender: "male",
+        dateOfBirth: "August 6"
+    } , {
+        name: "Bijou",
+        heightInMM: 75,
+        fur: ['white'],
+        gender: "female",
+        dateOfBirth: "July 10"
+    } , {
+        name: "Oxnard",
+        heightInMM: 100,
+        fur: ['grey', 'white'],
+        gender: "male",
+        dateOfBirth: "May 3"
+    } , {
+        name: "Boss",
+        heightInMM: 120,
+        fur: ['brown', 'white'],
+        gender: "male",
+        dateOfBirth: "Spetember 21"
+    } , {
+        name: "Snoozer",
+        heightInMM: 85,
+        fur: ['brown', 'white', "pink"],
+        gender: "male",
+        dateOfBirth: "January 14"
+    }
+];
+
+function tallestHamster(arr) {
+    var byHeight = [];
+    // for (var i = 0; i <= hamsters.length; i++) {
+       return arr.sort(function(a,b){
+          return a.heightInMM - b.heightInMM
+        });
+}
+console.log(tallestHamster(hamsters));
+
+
+
+
+
