@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery faq</title>
+</head>
+<body>
+<img src="img/nat-parks.png" id="activator" style="height: 250px">
+<dl>
+    <dt>How much land is protected as a National Park?</dt>
+    <dd>The National Park Service protects over 84 million acres of wild landscapes and historic sites.</dd>
+
+    <dt>Which National Park is the oldest?</dt>
+    <dd>Yellowstone National Park (in Wyoming, Idaho, and Montana) is the oldest U.S. national park, founded in 1872</dd>
+
+    <dt>Is there anything big in America's National Parks?</dt>
+    <dd>National parks are home to life on a big scale: Sequoia trees are some of the world's largest living things, and Alaskan brown bears are some of the world's largest carnivores.</dd>
+
+    <dt>No... I mean big big.</dt>
+    <dd>Seriously, California's Sequoia National Park is home to the largest living single-stem tree in the world, the wonderfully named General Sherman. The tree is approximately 275 feet tall and weighs approximately 1,900 metric tons.</dd>
+
+    <dt>BIGGER!?!</dt>
+    <dd>Ribbon Falls in Yosemite is nine times taller than Niagara Falls; and Death Valley National Park is the largest national park in the lower 48 U.S. states, stretching 5,300 square miles or 3.4 million acres.Is that big enough?</dd>
+
+    <dt>Whats the deal with that geyser?</dt>
+    <dd>Old Faithful erupts every 35 to 120 minutes for 1 1/2 to 5 minutes. Its maximum height ranges from 90 to 184 feet. It is not the biggest or the most regular geyser in Yellowstone but it is the biggest regular geyser.</dd>
+
+    <dt>Are there and impressive cave systems in the National Park System?</dt>
+    <dd>Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep; and Mammoth Cave National Park in Kentucky has the longest cave system in the world with more than 3,454 mapped miles.</dd>
+
+    <dt>Are parks all just nature and stuff?</dt>
+    <dd>National parks are actually the home to a former federal prison, Alcatraz in Golden Gate National Recreation Area, California, and a leper colony, Molokai Island Hansen's Disease Settlement in Kalaupapa National Historic Site, Hawaii.</dd>
+
+    <dt>Are National Parks and National Monuments the same thing?</dt>
+    <dd>National parks and national monuments are sometimes confused. National parks are chosen for their natural beauty, unique geological features, and unusual ecosystems.</dd>
+
+    <dt>Is there a National PArk in every state?</dt>
+    <dd>Only one state in the country is not lucky enough to currently have either a national park or national monument. It is actually the country’s first state, Delaware. </dd>
+</dl>
+
+<button>click for "I AM THE NIGHT" mode</button>
+
+<script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+<script>
+    $('dd').addClass('invisible');
+    // $('dt').addClass('highlight');
+
+
+    $('#activator').click(function(event) {
+        $('dd').toggleClass('invisible');
+    });
+
+    $('dt').click(function(event) {
+        $(this).next().toggleClass('highlight');
+    });
+
+    $('button').click(function(event) {
+        $('body').toggleClass('bodyMods');
+    });
+
+</script>
+<style>
+    body {
+        background-color: sienna;
+        line-height: 1.5em;
+
+    }
+
+    .bodyMods {
+        background-color: black;
+        color: white;
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    .highlight {
+        background-color: lime;
+    }
+
+</style>
+</body>
+</html>
