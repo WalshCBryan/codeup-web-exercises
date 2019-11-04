@@ -3,8 +3,8 @@
 //write a function that adds 2 numbers together
 
 function sumBoth(x) {
-   var a = 3;
-   var b = 2;
+    var a = 3;
+    var b = 2;
     return (a + b);
     console.log(a + b);
 }
@@ -20,8 +20,8 @@ console.log(sumAll(1, 8));
 //function to return area of triangle given 3 sides, Heron's formula
 
 function triArea(a, b, c) {
-   var semi = (a + b + c) / 2;
-   var area = Math.sqrt(semi * (semi - a) * (semi - b) * (semi - c));
+    var semi = (a + b + c) / 2;
+    var area = Math.sqrt(semi * (semi - a) * (semi - b) * (semi - c));
     return (area);
 }
 
@@ -202,8 +202,8 @@ function stringTest(x) {
 
 //write a function that takes in a floating point number and returns number rounded down
 
-function roundDown(x){
-    if (typeof(x) === "number" && !isNaN(x)) {
+function roundDown(x) {
+    if (typeof (x) === "number" && !isNaN(x)) {
         return Math.floor(x);
     } else return false
 }
@@ -222,13 +222,15 @@ function upTo(x) {
 
 var personObject = [];
 
-function createPersonObject(x,y) {
-   if (typeof x === "string" && typeof y === "number")
-    personObject.push({
-        name: x,
-        age: y
-    })
-} console.log(personObject);
+function createPersonObject(x, y) {
+    if (typeof x === "string" && typeof y === "number")
+        personObject.push({
+            name: x,
+            age: y
+        })
+}
+
+console.log(personObject);
 
 createPersonObject("bill", 32);
 createPersonObject("amy", 55);
@@ -244,26 +246,29 @@ createPersonObject("ted", 18);
 function fizzBuzz(x) {
     for (var x = 0; x <= 100; x++) {
         if (x % 3 === 0 && x % 5 === 0) {
-        console.log(x + " FizzBuzz");
+            console.log(x + " FizzBuzz");
         } else if (x % 5 === 0) {
-        console.log(x + " Buzz");
+            console.log(x + " Buzz");
         } else if (x % 3 === 0) {
-        console.log(x + " Fizz");
+            console.log(x + " Fizz");
         } else {
-        console.log(x);}
-    } return console.log("FizzBuzz :)");
+            console.log(x);
+        }
+    }
+    return console.log("FizzBuzz :)");
 }
 
-function fizzbuzz2(){
-    for(var i=1; i<=100; i++) {
-        if (i % 15 === 0){
+function fizzbuzz2() {
+    for (var i = 1; i <= 100; i++) {
+        if (i % 15 === 0) {
             console.log("fizzbuzz");
-        } else if (i % 5 === 0){
+        } else if (i % 5 === 0) {
             console.log("buzz");
-        } else if (i % 3 ===0) {
+        } else if (i % 3 === 0) {
             console.log("fizz");
         } else console.log(i);
-    } return console.log("Fizzbuzz!! :)");
+    }
+    return console.log("Fizzbuzz!! :)");
 }
 
 var testarray = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
@@ -281,19 +286,18 @@ var shoppingCarts = [
         bananas: 6,
         oranges: 8,
         grapes: 12
-    } , {
+    }, {
         apples: 0,
         bananas: 12,
         oranges: 0,
         grapes: 0
-    } , {
+    }, {
         apples: 4,
         bananas: 0,
         oranges: 12,
         grapes: 10
     }
 ];
-
 
 
 // function mostOranges(arr) {
@@ -315,12 +319,11 @@ function mostOranges(carts) {
         }
 
     });
-        return console.log(winner);
+    return console.log(winner);
 
 }
+
 mostOranges(shoppingCarts);
-
-
 
 
 var shoppers = [
@@ -328,15 +331,17 @@ var shoppers = [
         name: 'Cameron',
         amount: 180
     },
-    {   name: 'Ryan',
+    {
+        name: 'Ryan',
         amount: 250
     },
-    {   name: 'George',
+    {
+        name: 'George',
         amount: 320
     }
 ];
 
-shoppers.forEach(function(shopper){
+shoppers.forEach(function (shopper) {
     var discount = shopper.amount * .12;
     var newtotal = shopper.amount - discount;
     if (shopper.amount >= 200) {
@@ -374,13 +379,14 @@ var students = [
     }
 ];
 
-function checkRegistration(arr){
+function checkRegistration(arr) {
     var newArr = [];
-    for( var i=0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         if (arr[i].isRegistered === false) {
-           newArr.push(arr[i])
+            newArr.push(arr[i])
         }
-    } return newArr
+    }
+    return newArr
 }
 
 // console.log(checkRegistration(students));
@@ -394,25 +400,25 @@ var hamsters = [
         fur: ['orange', 'white'],
         gender: "male",
         dateOfBirth: "August 6"
-    } , {
+    }, {
         name: "Bijou",
         heightInMM: 75,
         fur: ['white'],
         gender: "female",
         dateOfBirth: "July 10"
-    } , {
+    }, {
         name: "Oxnard",
         heightInMM: 100,
         fur: ['grey', 'white'],
         gender: "male",
         dateOfBirth: "May 3"
-    } , {
+    }, {
         name: "Boss",
         heightInMM: 120,
         fur: ['brown', 'white'],
         gender: "male",
         dateOfBirth: "Spetember 21"
-    } , {
+    }, {
         name: "Snoozer",
         heightInMM: 85,
         fur: ['brown', 'white', "pink"],
@@ -424,11 +430,69 @@ var hamsters = [
 function tallestHamster(arr) {
     var byHeight = [];
     // for (var i = 0; i <= hamsters.length; i++) {
-       return arr.sort(function(a,b){
-          return a.heightInMM - b.heightInMM
-        });
+    return arr.sort(function (a, b) {
+        return a.heightInMM - b.heightInMM
+    });
 }
+
 console.log(tallestHamster(hamsters));
+
+//write a function that accepts a number 1-10 and returns that number as a string/spelled out. ie 2 return "two"
+
+
+function numberToString(x) {
+    if (x === 1) {
+        return "one";
+    } else if (x === 2) {
+        return "two";
+    } else if (x === 3) {
+        return "three";
+    } else if (x === 4) {
+        return "four";
+    } else if (x === 5) {
+        return "five";
+    } else if (x === 6) {
+        return "six";
+    } else if (x === 7) {
+        return "seven";
+    } else if (x === 8) {
+        return "eight";
+    } else if (x === 9) {
+        return "nine";
+    } else if (x === 10) {
+        return "ten"
+    } else return "Numbers 1-10 ONLY!"
+}
+
+//same, but as switch case
+function numAsWord(num) {
+    switch (num) {
+        case 1:
+            return "one";
+        case 2:
+            return "two";
+        case 3:
+            return "three";
+        case 4:
+            return "four";
+        case 5:
+            return "five";
+        case 6:
+            return "six";
+        case 7:
+            return "seven";
+        case 8:
+            return "eight";
+        case 9:
+            return "nine";
+        case 10:
+            return "ten";
+        default :
+            return "numbers 1-10 ONLY!"
+    }
+}
+
+var randomNum = Math.floor(Math.random() * 10) +1;
 
 
 
