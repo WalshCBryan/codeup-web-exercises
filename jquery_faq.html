@@ -38,7 +38,46 @@
     <dd>Only one state in the country is not lucky enough to currently have either a national park or national monument. It is actually the country’s first state, Delaware. </dd>
 </dl>
 
-<button>click for "I AM THE NIGHT" mode</button>
+<h3>Grand Canyon National Park</h3>
+<ul>
+    <li>Area: 1,902 mi²</li>
+    <li>Established: February 26, 1919</li>
+    <li>Home of the Grand Canyon...</li>
+    <li>Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her Desert View Watchtower.</li>
+</ul>
+
+<h3>Yellowstone National Park</h3>
+<ul>
+    <li>Area: 3,471 mi²</li>
+    <li>Established: March 1, 1872</li>
+    <li>Home of Old Faithful‎</li>
+    <li>The Yellowstone National Park boundaries were drawn in 1872 to include all the geothermal basins in the area.</li>
+</ul>
+
+<h3>Sequoia National Park</h3>
+<ul>
+    <li>Area: 631 mi²</li>
+    <li>Established: September 25, 1890</li>
+    <li>Home of huge sequoia trees</li>
+    <li>Sequoia National Park is adjacent to Kings Canyon National Park in California's southern Sierra Nevada mountains.</li>
+</ul>
+
+<ul id="container">
+    <div id="frame1">
+       <img class="frameimg" src="img/veridianlogo.png">;
+    </div>
+    <div id="frame2">
+        <img class="frameimg" src="img/zombiehead.jpeg">;
+    </div>
+    <div id="frame3">
+        <img class="frameimg" src="img/codeuplogo.jpg">;
+
+    </div>
+
+</ul>
+
+<button id="nightmode">click for "I AM THE NIGHT" mode</button>
+<button id="highlighter">click to highlight the last LI in all ULs</button>
 
 <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
 <script>
@@ -54,16 +93,69 @@
         $(this).next().toggleClass('highlight');
     });
 
-    $('button').click(function(event) {
+    $('#nightmode').click(function(event) {
         $('body').toggleClass('bodyMods');
     });
+
+    $('#highlighter').click(function() {
+        $('ul').each(function(){
+            $(this).children().last('li').toggleClass('highlight')
+        });
+    });
+
+    $('h3').click(function() {
+        $(this).next().children().toggleClass('bold')
+    });
+
+    // When any list item is clicked, first li of the parent ul should have a font color of blue.
+
+    $('li').click(function() {
+        $(this).parent().children().first().toggleClass('blue')
+    });
+
+
+    $('#container').children().first().click(function() {
+        $(this).before($('#container').children().first().next());
+    });
+
+    // $('#frame3').click(function() {
+    //     $(this).after($('#frame2'));
+    // });
+
+
+    // $('#frame1').click(function() {
+    //     $(this).before($('.frame2'));
+    //
+    // });
+
+    $('#frame3').click(function() {
+        $(this).after($('#frame2'));
+    });
+
+
+    // console.log($('ul').each().children().html());
+
+
+    // Create 3 divs that each look like a picture frame. Each one should have a unique background image and a button underneath that swaps the image from the frame. Use the traversing functions of jQuery to accomplish this.
+    //
+    //     The rules are the following:
+    //
+    //     The left frame swaps to the right and takes the image from the frame in the center.
+    //     The center frame swaps randomly to either the left or right.
+    //     The right frame swaps to the left and takes the image from the frame in the center.
+
+
 
 </script>
 <style>
     body {
         background-color: sienna;
         line-height: 1.5em;
+    }
 
+    #container {
+        display: flex;
+        justify-content: space-evenly;
     }
 
     .bodyMods {
@@ -77,6 +169,33 @@
 
     .highlight {
         background-color: lime;
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    .blue {
+        color: blue;
+    }
+
+    #frame1 {
+        height: 300px;
+        width: 150px;
+    }
+    #frame2 {
+        height: 300px;
+        width: 150px;
+
+    }
+    #frame3 {
+        height: 300px;
+        width: 150px;
+    }
+
+    .frameimg {
+        height: 100%;
+        width: 100%;
     }
 
 </style>

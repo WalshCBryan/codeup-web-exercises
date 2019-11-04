@@ -1,7 +1,6 @@
 "use strict";
 
 
-$(document).ready(function(){
 // $(document).ready(function() {
 //     alert($("#header").html());
 // });
@@ -64,5 +63,3 @@ $("zombieHead").css({"width":"75px"});
 //     function(){
 //     $("li").css("color","black")
 //     });
-
-});
