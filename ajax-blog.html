@@ -3,61 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #buttonbox {
+            display: block;
+            margin: auto;
+        }
+
+        #addstuff {
+            display: block;
+            margin: auto;
+        }
+
+        input {
+            width: 40%;
+        }
+
+        body {
+            /*background-color: dimgrey;*/
+        }
+
+        .teal {
+            background-color: #008080;
+        }
+
+        .purple {
+            background-color: #996699;
+        }
+
+        .mauve {
+            background-color: #777799;
+        }
+
+        input {
+            border: 3px solid black;
+            border-radius: 5px;
+        }
+
+        hr {
+            border: 5px solid grey;
+            border-radius: 5px;
+
+        }
+    </style>
 </head>
 <body>
 
 
-<table id="theBlog">
-    <thead>
+<table class="table table-striped table-hover" id="theBlog">
+    <thead class="thead-dark">
     <tr>
         <th>Title</th>
-        <th style="width: 50%">Contents</th>
+        <th style="width: 60%">Contents</th>
         <th>Categories</th>
         <th>Date</th>
     </tr>
     </thead>
     <tbody id="posts"></tbody>
 </table>
+<hr>
+<div id="addstuff">
+    <h3>Add A Post</h3>
+    <h4>Title</h4><input type="text" id="addTitle">
+    <h4>Contents</h4><input type="text" id="addContent" style="height: 400px">
+    <h4>Category(ies)</h4><input type="text" id="addCategories">
+    <h4>Date</h4><input type="text" id="addDate">
+    <br>
+</div>
 
-<button id="refresh">refresh blog</button>
-
+<div id="buttonbox">
+    <button id="refresh" class="btn btn-primary">refresh blog</button>
+    <button id="addAPost" class="btn btn-primary">Add Post</button>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
-    var myBlog = $.ajax("data/blog.json");
 
-    function generateBlog() {
+    (function () {
+        "use strict";
         var myBlog = $.ajax("data/blog.json");
 
-        myBlog.done(function (data) {
-            // console.log(data);
-            $.each(data, function (index, post) {
-                console.log(post);
-                var entry = "<tr> <td>";
-                entry += post.title;
-                entry += "</td> <td>";
-                entry += post.content;
-                entry += "</td> <td>";
-                entry += post.categories;
-                entry += "</td> <td>";
-                entry += post.date;
-                entry += "</td> </tr>";
-                //log each tool title
-                // console.log(tool.title);
-                $('#posts').append(entry);
-            })
-        });
-    }
+        function generateBlog() {
+            var myBlog = $.ajax("data/blog.json");
 
-    generateBlog();
+            myBlog.done(function (data) {
+                // console.log(data);
+                $.each(data, function (index, post) {
+                    console.log(post);
+                    var entry = "<tr> <td>";
+                    entry += post.title;
+                    entry += "</td> <td>";
+                    entry += post.content;
+                    entry += "</td> <td>";
+                    entry += post.categories;
+                    entry += "</td> <td>";
+                    entry += post.date;
+                    entry += "</td> </tr>";
+                    //log each tool title
+                    // console.log(tool.title);
+                    $('#posts').append(entry);
+                })
+            });
+        }
 
-    $('#refresh').click(function () {
-        // reset my html to empty string
-        $('#posts').html("");
-        // call function to append new book list
         generateBlog();
-    });
 
+        $('#refresh').click(function () {
+            // reset my html to empty string
+            $('#posts').html("");
+            // call function to append new book list
+            generateBlog();
+        });
+
+        $('#addAPost').click(function () {
+            // reset my html to empty string
+            // $('#insertProducts').html("");
+            // call function to append new book list
+            addPost();
+            // generateInventory()
+        });
+
+
+        function addPost() {
+            var newTitle = $("#addTitle").val();
+            var newContent = $("#addContent").val();
+            var newCategory = $("#addCategories").val();
+            var newDate = $("#addDate").val();
+            var post = "<tr> <td>";
+            post += newTitle;
+            post += "</td> <td>";
+            post += newContent;
+            post += "</td> <td>";
+            post += newCategory;
+            post += "</td> <td>";
+            post += newDate;
+            post += "</td> </tr>";
+            $('#posts').append(post);
+            alert("Adding post to blog");
+        }
+
+    })();
 
 </script>
 </body>

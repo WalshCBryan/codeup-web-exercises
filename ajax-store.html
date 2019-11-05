@@ -2,13 +2,50 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<style>
+    * {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: dimgrey;
+    }
+
+    input, buttons {
+        display: block;
+        margin: auto;
+    }
+
+    #header {
+        background-image: url("img/caution-banner.jpg");
+        background-repeat: repeat-x;
+        background-size: cover;
+
+        opacity: .75;
+    }
+
+    h1 {
+        opacity: 1;
+        text-shadow: 4px 4px black;
+        font-weight: bold;
+    }
+
+    input {
+        border: 2px solid orange;
+
+    }
+</style>
 <body>
-
-<h1>My Tool Store</h1>
-
-<table id="products">
-    <thead>
+<div id="header">
+    <h1 class="d-block p-3 text-white">My Tool Store</h1>
+</div>
+<table class="table table-bordered table-striped table-hover" id="products">
+    <thead class="thead-dark">
     <tr>
         <th>Title</th>
         <th>Quantity</th>
@@ -19,15 +56,24 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-<button id="refresh">Refresh Inventory</button>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<h3>Add Inventory</h3>
+<h4>Tool</h4><input type="text" id="addTool">
+<h4>Quantity</h4><input type="number" id="addQuantity">
+<h4>Price</h4><input type="number" id="addPrice">
+<h4>Category(ies)</h4><input type="text" id="addCategory">
+<br>
+<div id="buttons">
+    <button class="btn btn-warning" id="refresh">Refresh Inventory</button>
+    <button class="btn btn-warning" id="addInv">Add Inventory</button>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
     (function () {
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
 
-        var myInventory = $.ajax("data/inventory.json");
+        // var myInventory = $.ajax("data/inventory.json");
 
 
         // TODO: Take the data from inventory.json and append it to the products table
@@ -37,29 +83,29 @@
 
         var myInventory = $.ajax("data/inventory.json");
 
+        function generateInventory() {
+            myInventory.done(function (data) {
 
-      function generateInventory() {
-          myInventory.done(function (data) {
-              // console.log(data);
-              $.each(data, function (index, tool) {
-                  console.log(tool);
-                  var tools = "<tr> <td>";
-                  tools += tool.title;
-                  tools += "</td> <td>";
-                  tools += tool.quantity;
-                  tools += "</td> <td>";
-                  tools += tool.price;
-                  tools += "</td> <td>";
-                  tools += tool.categories;
-                  tools += "</td> </tr>";
-                  //log each tool title
-                  // console.log(tool.title);
-                  $('#insertProducts').append(tools);
-              })
-          });
-      }
+                // console.log(data);
+                $.each(data, function (index, tool) {
+                    console.log(tool);
+                    var tools = "<tr> <td>";
+                    tools += tool.title;
+                    tools += "</td> <td>";
+                    tools += tool.quantity;
+                    tools += "</td> <td>";
+                    tools += tool.price;
+                    tools += "</td> <td>";
+                    tools += tool.categories;
+                    tools += "</td> </tr>";
+                    //log each tool title
+                    // console.log(tool.title);
+                    $('#insertProducts').append(tools);
+                });
+            });
+        }
 
-      generateInventory();
+        generateInventory();
 
         $('#refresh').click(function () {
             // reset my html to empty string
@@ -68,9 +114,34 @@
             generateInventory();
         });
 
+        $('#addInv').click(function () {
+            // reset my html to empty string
+            // $('#insertProducts').html("");
+            // call function to append new book list
+            addTool();
+            // generateInventory()
+        });
+
+
+        function addTool() {
+            var newTool = $("#addTool").val();
+            var newQuantity = $("#addQuantity").val();
+            var newPrice = $("#addPrice").val();
+            var newCategory = $("#addCategory").val();
+            var tools = "<tr> <td>";
+            tools += newTool;
+            tools += "</td> <td>";
+            tools += newQuantity;
+            tools += "</td> <td>";
+            tools += newPrice;
+            tools += "</td> <td>";
+            tools += newCategory;
+            tools += "</td> </tr>";
+            $('#insertProducts').append(tools);
+            alert("Adding tool to inventory");
+        }
 
     })();
 </script>
-
 </body>
 </html>

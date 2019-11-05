@@ -28,6 +28,17 @@
             "cats"
         ],
         "date": "February 25, 2015"
+    },
+    {
+        "title": "The fourth Post",
+        "content": "more random text used to fill space",
+        "categories": [
+            "moar stuff",
+            "moar things",
+            "moar dogs",
+            "moar cats"
+        ],
+        "date": "February 31, 2015"
     }
 
 ]
