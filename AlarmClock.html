@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<button onclick="showTime()">Try it</button>
+
+<p id="clockOutput"></p>
+
+<div id="alarm">
+    <h2> alarm</h2>
+   H <input type="number" id="alarmHour">
+   M <input type="number" id="alarmMinute">
+   M <input type="number" id="alarmSecond">
+    <div id="alarmOutput"></div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+<script>
+
+    // funtion to add leading zero is hours, minutes, or seconds is less than 10
+    function addZero(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+
+    //gets and diplays time
+    function showTime() {
+        var d = new Date();
+        var hours = d.getHours();
+        var minutes = addZero(d.getMinutes());
+        var seconds = addZero(d.getSeconds());
+        $("#clockOutput").html("" + hours + ":" + minutes + ":" + seconds);
+    }
+
+
+    //runs time display every second, creating a working clock
+    setInterval(function () {
+        showTime();
+    }, 1000);
+
+    function Alarm(){
+        var alarmHour = $("#alarmHour").val();
+        var alarmMinute = $("#alarmMinute").val();
+        var alarmSecond = $("#alarmSecond").val();
+        var d = new Date();
+        var hours = d.getHours();
+        var minutes = addZero(d.getMinutes());
+        var seconds = addZero(d.getSeconds());
+        if (alarmHour === hours && alarmMinute === minutes && alarmSecond === seconds) {
+            $("#alarmOutput").html("<img src=\"assets/Wake-Up-820x500.jpg\">");
+            console.log("alarm");
+        }
+    }
+
+    setInterval(function () {
+        Alarm();
+    }, 1000);
+
+
+</script>
+</body>
+</html>

@@ -494,6 +494,8 @@ function numAsWord(num) {
 
 var randomNum = Math.floor(Math.random() * 10) +1;
 
+console.log(numAsWord(randomNum));
+
 
 
 

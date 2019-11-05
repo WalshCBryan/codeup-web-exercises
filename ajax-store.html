@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<button id="refresh">Refresh Inventory</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+    (function () {
+        "use strict";
+        // TODO: Create an ajax GET request for /data/inventory.json
+
+        var myInventory = $.ajax("data/inventory.json");
+
+
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+
+        var myInventory = $.ajax("data/inventory.json");
+
+
+      function generateInventory() {
+          myInventory.done(function (data) {
+              // console.log(data);
+              $.each(data, function (index, tool) {
+                  console.log(tool);
+                  var tools = "<tr> <td>";
+                  tools += tool.title;
+                  tools += "</td> <td>";
+                  tools += tool.quantity;
+                  tools += "</td> <td>";
+                  tools += tool.price;
+                  tools += "</td> <td>";
+                  tools += tool.categories;
+                  tools += "</td> </tr>";
+                  //log each tool title
+                  // console.log(tool.title);
+                  $('#insertProducts').append(tools);
+              })
+          });
+      }
+
+      generateInventory();
+
+        $('#refresh').click(function () {
+            // reset my html to empty string
+            $('#insertProducts').html("");
+            // call function to append new book list
+            generateInventory();
+        });
+
+
+    })();
+</script>
+
+</body>
+</html>

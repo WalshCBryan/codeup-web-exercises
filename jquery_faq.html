@@ -5,117 +5,184 @@
     <title>jquery faq</title>
 </head>
 <body>
+<div id="hideYourDivs">
+    <h1> would you like to sign up for our newsletter??</h1>
+    <span id="theBigX">X</span>
+</div>
+
+
 <img src="img/nat-parks.png" id="activator" style="height: 250px">
 <dl>
     <dt>How much land is protected as a National Park?</dt>
     <dd>The National Park Service protects over 84 million acres of wild landscapes and historic sites.</dd>
 
     <dt>Which National Park is the oldest?</dt>
-    <dd>Yellowstone National Park (in Wyoming, Idaho, and Montana) is the oldest U.S. national park, founded in 1872</dd>
+    <dd>Yellowstone National Park (in Wyoming, Idaho, and Montana) is the oldest U.S. national park, founded in 1872
+    </dd>
 
     <dt>Is there anything big in America's National Parks?</dt>
-    <dd>National parks are home to life on a big scale: Sequoia trees are some of the world's largest living things, and Alaskan brown bears are some of the world's largest carnivores.</dd>
+    <dd>National parks are home to life on a big scale: Sequoia trees are some of the world's largest living things, and
+        Alaskan brown bears are some of the world's largest carnivores.
+    </dd>
 
     <dt>No... I mean big big.</dt>
-    <dd>Seriously, California's Sequoia National Park is home to the largest living single-stem tree in the world, the wonderfully named General Sherman. The tree is approximately 275 feet tall and weighs approximately 1,900 metric tons.</dd>
+    <dd>Seriously, California's Sequoia National Park is home to the largest living single-stem tree in the world, the
+        wonderfully named General Sherman. The tree is approximately 275 feet tall and weighs approximately 1,900 metric
+        tons.
+    </dd>
 
     <dt>BIGGER!?!</dt>
-    <dd>Ribbon Falls in Yosemite is nine times taller than Niagara Falls; and Death Valley National Park is the largest national park in the lower 48 U.S. states, stretching 5,300 square miles or 3.4 million acres.Is that big enough?</dd>
+    <dd>Ribbon Falls in Yosemite is nine times taller than Niagara Falls; and Death Valley National Park is the largest
+        national park in the lower 48 U.S. states, stretching 5,300 square miles or 3.4 million acres.Is that big
+        enough?
+    </dd>
 
     <dt>Whats the deal with that geyser?</dt>
-    <dd>Old Faithful erupts every 35 to 120 minutes for 1 1/2 to 5 minutes. Its maximum height ranges from 90 to 184 feet. It is not the biggest or the most regular geyser in Yellowstone but it is the biggest regular geyser.</dd>
+    <dd>Old Faithful erupts every 35 to 120 minutes for 1 1/2 to 5 minutes. Its maximum height ranges from 90 to 184
+        feet. It is not the biggest or the most regular geyser in Yellowstone but it is the biggest regular geyser.
+    </dd>
 
     <dt>Are there and impressive cave systems in the National Park System?</dt>
-    <dd>Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep; and Mammoth Cave National Park in Kentucky has the longest cave system in the world with more than 3,454 mapped miles.</dd>
+    <dd>Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep; and
+        Mammoth Cave National Park in Kentucky has the longest cave system in the world with more than 3,454 mapped
+        miles.
+    </dd>
 
     <dt>Are parks all just nature and stuff?</dt>
-    <dd>National parks are actually the home to a former federal prison, Alcatraz in Golden Gate National Recreation Area, California, and a leper colony, Molokai Island Hansen's Disease Settlement in Kalaupapa National Historic Site, Hawaii.</dd>
+    <dd>National parks are actually the home to a former federal prison, Alcatraz in Golden Gate National Recreation
+        Area, California, and a leper colony, Molokai Island Hansen's Disease Settlement in Kalaupapa National Historic
+        Site, Hawaii.
+    </dd>
 
     <dt>Are National Parks and National Monuments the same thing?</dt>
-    <dd>National parks and national monuments are sometimes confused. National parks are chosen for their natural beauty, unique geological features, and unusual ecosystems.</dd>
+    <dd>National parks and national monuments are sometimes confused. National parks are chosen for their natural
+        beauty, unique geological features, and unusual ecosystems.
+    </dd>
 
     <dt>Is there a National PArk in every state?</dt>
-    <dd>Only one state in the country is not lucky enough to currently have either a national park or national monument. It is actually the country’s first state, Delaware. </dd>
+    <dd>Only one state in the country is not lucky enough to currently have either a national park or national monument.
+        It is actually the country’s first state, Delaware.
+    </dd>
 </dl>
 
 <h3>Grand Canyon National Park</h3>
-<ul>
+<ul class="hidden">
     <li>Area: 1,902 mi²</li>
     <li>Established: February 26, 1919</li>
     <li>Home of the Grand Canyon...</li>
-    <li>Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her Desert View Watchtower.</li>
+    <li>Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her
+        Desert View Watchtower.
+    </li>
 </ul>
 
 <h3>Yellowstone National Park</h3>
-<ul>
+<ul class="hidden">
     <li>Area: 3,471 mi²</li>
     <li>Established: March 1, 1872</li>
     <li>Home of Old Faithful‎</li>
-    <li>The Yellowstone National Park boundaries were drawn in 1872 to include all the geothermal basins in the area.</li>
+    <li>The Yellowstone National Park boundaries were drawn in 1872 to include all the geothermal basins in the area.
+    </li>
 </ul>
 
 <h3>Sequoia National Park</h3>
-<ul>
+<ul class="hidden">
     <li>Area: 631 mi²</li>
     <li>Established: September 25, 1890</li>
     <li>Home of huge sequoia trees</li>
-    <li>Sequoia National Park is adjacent to Kings Canyon National Park in California's southern Sierra Nevada mountains.</li>
+    <li>Sequoia National Park is adjacent to Kings Canyon National Park in California's southern Sierra Nevada
+        mountains.
+    </li>
 </ul>
 
-<ul id="container">
-    <div id="frame1">
-       <img class="frameimg" src="img/veridianlogo.png">;
-    </div>
-    <div id="frame2">
-        <img class="frameimg" src="img/zombiehead.jpeg">;
-    </div>
-    <div id="frame3">
-        <img class="frameimg" src="img/codeuplogo.jpg">;
+<!--<div class="alert alert-success" id ="registerYou" role="alert">Hey! You should register for our site!</div>-->
 
+<div class="modal fade" id="registerYou" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <span> Hey! You should register for our site!</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
+</div>
 
-</ul>
+<!--<h2 id="registerYou">Hey! You should register for our site!</h2>-->
+<!--<ul id="container">-->
+<!--    <div id="frame1">-->
+<!--       <img class="frameimg" src="img/veridianlogo.png">;-->
+<!--    </div>-->
+<!--    <div id="frame2">-->
+<!--        <img class="frameimg" src="img/zombiehead.jpeg">;-->
+<!--    </div>-->
+<!--    <div id="frame3">-->
+<!--        <img class="frameimg" src="img/codeuplogo.jpg">;-->
+
+<!--    </div>-->
+
+<!--</ul>-->
 
 <button id="nightmode">click for "I AM THE NIGHT" mode</button>
 <button id="highlighter">click to highlight the last LI in all ULs</button>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
 <script>
+
+
     $('dd').addClass('invisible');
     // $('dt').addClass('highlight');
 
 
-    $('#activator').click(function(event) {
+    $('#activator').click(function (event) {
         $('dd').toggleClass('invisible');
     });
 
-    $('dt').click(function(event) {
+    $('dt').click(function (event) {
         $(this).next().toggleClass('highlight');
     });
 
-    $('#nightmode').click(function(event) {
+    $('#nightmode').click(function (event) {
         $('body').toggleClass('bodyMods');
     });
 
-    $('#highlighter').click(function() {
-        $('ul').each(function(){
+    $('#highlighter').click(function () {
+        $('ul').each(function () {
             $(this).children().last('li').toggleClass('highlight')
         });
     });
 
-    $('h3').click(function() {
+    $('h3').click(function () {
         $(this).next().children().toggleClass('bold')
     });
 
     // When any list item is clicked, first li of the parent ul should have a font color of blue.
 
-    $('li').click(function() {
+    $('li').click(function () {
         $(this).parent().children().first().toggleClass('blue')
     });
 
 
-    $('#container').children().first().click(function() {
+    $('#container').children().first().click(function () {
         $(this).before($('#container').children().first().next());
+    });
+
+    $('#theBigX').click(function (event) {
+        $('#hideYourDivs').toggle();
+    });
+
+
+    $('h3').click(function (event) {
+        $(this).next().slideToggle();
     });
 
     // $('#frame3').click(function() {
@@ -128,9 +195,16 @@
     //
     // });
 
-    $('#frame3').click(function() {
+    $('#frame3').click(function () {
         $(this).after($('#frame2'));
     });
+
+
+    $('#registerYou').delay(2000).modal()
+
+    // $(document).ready(function(){
+    //     $("#registerYou").modal();
+    // });
 
 
     // console.log($('ul').each().children().html());
@@ -143,7 +217,6 @@
     //     The left frame swaps to the right and takes the image from the frame in the center.
     //     The center frame swaps randomly to either the left or right.
     //     The right frame swaps to the left and takes the image from the frame in the center.
-
 
 
 </script>
@@ -171,7 +244,7 @@
         background-color: lime;
     }
 
-    .bold{
+    .bold {
         font-weight: bold;
     }
 
@@ -183,11 +256,13 @@
         height: 300px;
         width: 150px;
     }
+
     #frame2 {
         height: 300px;
         width: 150px;
 
     }
+
     #frame3 {
         height: 300px;
         width: 150px;
@@ -197,6 +272,19 @@
         height: 100%;
         width: 100%;
     }
+
+    /*h3 {*/
+    /*    display: none;*/
+    /*}*/
+
+    .hidden {
+        display: none;
+    }
+
+    .registerYou {
+        display: none;
+    }
+
 
 </style>
 </body>
