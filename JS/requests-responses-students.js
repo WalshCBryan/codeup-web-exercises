@@ -11,50 +11,60 @@ $(document).ready(function () {
      * endpoint, then query it for a username...
      */
 
-    // console.log($.ajax("https://hookb.in/XkxGyrLDONUKnqojMWzD"));
+    // console.log($.ajax("https://hookb.in/G9bVBddEGGCdKrm9xnw9"));
 
 
     /*
      * TO DO TOGETHER: For this next one, we'll send over some data. Add the
      * following JavaScript Object to your Hookbin AJAX request:
      */
-    //
-    // var person = {
-    //     type: "POST",
-    //     data: {
-    //         first: "Jesse",
-    //         last: "Pinkman",
-    //         location: "unknown"
-    //     }
-    // };
-    //
-    // console.log($.ajax("https://hookb.in/XkxGyrLDONUKnqojMWzD", person));
+
+    var person = {
+        type: "POST",
+        data: {
+            first: "Jesse",
+            last: "Pinkman",
+            location: "unknown"
+        }
+    };
+
+// good--------------------------------------------------------
+//     console.log($.ajax("https://hookb.in/G9bVBddEGGCdKrm9xnw9", person));
+
 
     /*
      * TO DO: Refactor the first example using a GET request object instead of
      * appending a query to the url.
      */
-    //
-    //
-    // var bob = {
-    //     type: "GET",
-    //     data: {
-    //         username: "Bob"
-    //     }
-    // };
-    //
-    // console.log($.ajax("https://hookb.in/XkxGyrLDONUKnqojMWzD", bob));
+
+    // good--------------------------------------------------------
+    var bob = {
+        type: "GET",
+        data: {
+            "username": "Bob"
+        }
+    };
+
+    // console.log($.ajax("https://hookb.in/G9bVBddEGGCdKrm9xnw9", bob));
+
 
     /*********************************************
      *              REQUESTS and RESPONSES
      ******************************************** */
+    var starWars = $.ajax("https://swapi.co/api/films");
 
     /*
      * TO DO TOGETHER: Now, let's see how we can use AJAX requests to communicate with an
      * API and get data back. Uncomment the line below.
      */
-    //
-    // $.ajax("https://pokeapi.co/api/v2/pokemon").done(function (data) {
+
+    // good--------------------------------------------------------
+    // $.ajax("https://pokeapi.co/api/v2/pokemon").done(function(data){
+    //     console.log(data);
+    // });
+
+    // good--------------------------------------------------------
+    // $.ajax("https://swapi.co/api/films").done(function(data){
     //     console.log(data);
     // });
 
@@ -63,32 +73,17 @@ $(document).ready(function () {
      * return a list of all Star Wars films.
      */
 
-    var starWarsFilms = $.ajax("https://swapi.co/api/films");
 
-// starWarsFilms.done(function(data){
-//     console.log(data);
-// });
-//
-//
-//
-//     starWarsFilms.done(function (data) {
-//         $.each(data, function (index, title) {
-//             console.log(title);
-//         })
-//     }).
-//
-//     starWarsFilms.fail(function (jqXhr, status, error) {
-//         console.log("you've been blocked!");
-//         console.log(jqXhr);
-//         console.log(status);
-//         console.log(error);
-//     });
-
-
-
-// var requestBooks = $.ajax("data/books.json");
-
-// requestBooks.done(function (data) {
+    // good--------------------------------------------------------
+    // $.ajax("https://swapi.co/api/films").done(function(data){
+    //     console.log(data);
+    // }).fail(function(jqXhr, status){
+    //     console.log("you've been blocked");
+    //     console.log(jqXhr);
+    //     console.log(status);
+    // }).always(function(){
+    //     console.log("loading...");
+    // });
 
     /*
      * That's fine and dandy, but what if we have a local JSON file and
@@ -99,102 +94,111 @@ $(document).ready(function () {
       * previously.
      */
 
-    var requestedBooks = $.ajax("data/books.json");
+    var myBooks = $.ajax("data/books.json");
+
+    // good--------------------------------------------------------
+    // pre written functions for action on success, failure, and always behaviors
+    // function onSuccess(data) {
+    //     console.log(data);
+    // }
+    //
+    // function onFail(jqXhr) {
+    //     console.log("check your file path");
+    // }
+    //
+    // function forAlways() {
+    //     console.log("looking...");
+    // }
+
+    // good--------------------------------------------------------
+    // myBooks.done(onSuccess);
 
     /*
      * TO DO TOGETHER: What if we want to display a message if this AJAX request
      * fails?
      */
 
-    requestedBooks.fail(function(){
-        console.log("failed request");
-    });
+    // good--------------------------------------------------------
+// myBooks.done(onFail);
 
     /*
      * TO DO TOGETHER: How about a function that always runs whether the request
      * fails or not?
      */
 
-requestedBooks.always(function(){
-    console.log("loading...");
-});
+    // good--------------------------------------------------------
+// myBooks.done(forAlways);
+
     /*
      * TO DO: Refactor your Star Wars API request to log a message that says
      * "Something wrong with your request..." if it fails.
      */
 
-    // starWarsFilms.fail(function(){
-    //     console.log("failed to reach star wars api");
-    // });
+    // good--------------------------------------------------------
+    // starWars.fail(onFail);
 
     /*
      * TO DO: Refactor your Star Wars API request to log a message that says
      * "...loading" whether the request fails or not.
      */
 
-    // starWarsFilms.always(function(){
-    //     console.log("maybe failed to reach star wars api?");
-    // });
+    // good--------------------------------------------------------
+    // starWars.always(forAlways);
 
     /*
      * TO DO TOGETHER: Create a Star Wars API request that queries for "A
      * New Hope" and store this request in a variable.
+     *
+     * Take a look at the object that is being returned. Write a console log
+      * that displays the director of the film.
      */
 
-    var myMovie = $.ajax("https://swapi.co/api/films", {
+    var newHope = $.ajax("https://swapi.co/api/films", {
         type: "GET",
         data: {
-            "search": "A New hope"
+            "search": "A New Hope"
         }
     });
 
-    myMovie.done(function (data) {
-        console.log(data);
+    // good--------------------------------------------------------
+    newHope.done(function(data){
+        console.log("The director of A New Hope is : " + data.results[0].director);
     });
-
-    /*
-    * Take a look at the object that is being returned. Write a console log
-     * that displays the director of the film.
-    */
-
-    // myMovie.done(function (data) {
-    //     console.log("the director of this movie is:" + data.results[0].director);
-    // });
 
     /*
      * TO DO: Create a new variable that makes a similar request. Search for
      * "The Force Awakens" and console log its release date.
      */
 
-    // var myMovie2 = $.ajax("https://swapi.co/films", {
-    //     type: "GET",
-    //     data: {
-    //         "search": "The Force Awakens"
-    //     }
-    // });
+    var forceAwakens = $.ajax("https://swapi.co/api/films", {
+        type: "GET",
+        data: {
+            "search": "The Force Awakens"
+        }
+    });
 
 
-    // same... but shorthand for get
-    // var myMovie2 = $.get("https://swapi.co/films", {
-    //     "search": "The Force Awakens"
-    // });
+    // good--------------------------------------------------------
 
-
-    // myMovie2.done(function (data) {
-    //     console.log("the release date of this movie is: " + data.results[6].release_date);
-    // });
+    forceAwakens.done(function(data){
+        console.log("The Force Awakens was released on : " + data.results[0].release_date);
+    });
 
     /*
      * TO DO: Make a request to books.json. Return the author of "The
      * Canterbury Tales."
      */
+    var canterburyTales = $.get("data/books.json");
 
-    // var myBooks = $.ajax("data/books.json");
-
-
-    // myBooks.done(function (data) {
-    //     console.log("The Author of this book is : " + (data[17].author));
-    // });
+    canterburyTales.done(function (data) {
+        var theAuthor;
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].author === "Geoffrey Chaucer") {
+                theAuthor = data[i].author;
+            }
+        }
+        console.log("The author of the Canterbury Tales is : " + theAuthor);
+    });
 
 
     /*********************************************
@@ -209,14 +213,6 @@ requestedBooks.always(function(){
      * syntax to use. (: At the end of the day, what we are doing is making
      * a request to a server!
      */
-
-    // var requestBooks = $.ajax("data/books.json");
-
-
-    // requestBooks.fail(function (data) {
-    //     console.log("failed");
-    // });
-
 
     /*
      * TO DO TOGETHER: There's some additional refactoring we can do. We can
@@ -235,39 +231,50 @@ requestedBooks.always(function(){
      * class/id to target it.
      */
 
-    var requestBooks = $.ajax("data/books.json");
-
-    requestBooks.done(function (data) {
-        $.each(data, function (index, book) {
-            var content = "<h2>";
-            content += book.title;
-            content += "</h2>";
-            content += "<h4>";
-            content += book.author;
-            content += "</h4>";
-            // console.log(book.title);
-            $('#main').append(content);
-        })
-    });
-});
+    /*
+     * TO DO: Add your favorite book to the end of books.json.
+     */
 
 
-generateBooks();
+    function generateBooks() {
+        var myBooks = $.ajax("data/books.json");
 
-function generateBooks() {
-    $("#refresh").click(function () {
-        $("#main").html("");
+        myBooks.done(function (data) {
+            // console.log(data);
+            //parses through each object in json
+            $.each(data, function (index, book) {
+                //logs individual book data
+                // console.log(data[index]);
+                //formatting 'content' so can append stylized content to main
+                var content = "<h2>";
+                content += book.title;
+                content += "</h2>";
+                content += "<h4>";
+                content += book.author;
+                content += "</h4>";
+                //test log
+                // console.log(content);
+                //appends stylized content to $("#main")
+                $("#main").append(content);
+            })
+        });
+        myBooks.fail(function (data) {
+            console.log("Something went wrong.");
+        });
+    }
+
+    generateBooks();
+
+
+    $('#refresh').click(function () {
+        // reset my html to empty string
+        $('#main').html("");
+        // call function to append new book list
         generateBooks();
     });
-}
+    /*
+     * Bonus: Create a button the refreshes the contents of your html
+     * without refreshing the page.
+     */
 
-
-/*
- * TO DO: Add your favorite book to the end of books.json.
- */
-
-
-/*
- * Bonus: Create a button the refreshes the contents of your html
- * without refreshing the page.
- */
+});

@@ -11,7 +11,7 @@ $(document).ready(function () {
      * endpoint, then query it for a username...
      */
 
-    // console.log($.ajax("https://hookb.in/XkxGyrLDONUKnqojMWzD"));
+    // console.log($.ajax("https://hookb.in/G9bVBddEGGCdKrm9xnw9"));
 
 
     /*
@@ -29,7 +29,7 @@ $(document).ready(function () {
     };
 
 // good--------------------------------------------------------
-    // console.log($.ajax("https://hookb.in/XkxGyrLDONUKnqojMWzD", person));
+//     console.log($.ajax("https://hookb.in/G9bVBddEGGCdKrm9xnw9", person));
 
 
     /*
@@ -45,13 +45,14 @@ $(document).ready(function () {
         }
     };
 
-    // console.log($.ajax("https://hookb.in/XkxGyrLDONUKnqojMWzD", bob));
+    // console.log($.ajax("https://hookb.in/G9bVBddEGGCdKrm9xnw9", bob));
 
 
     /*********************************************
      *              REQUESTS and RESPONSES
      ******************************************** */
     var starWars = $.ajax("https://swapi.co/api/films");
+
     /*
      * TO DO TOGETHER: Now, let's see how we can use AJAX requests to communicate with an
      * API and get data back. Uncomment the line below.
@@ -97,17 +98,17 @@ $(document).ready(function () {
 
     // good--------------------------------------------------------
     // pre written functions for action on success, failure, and always behaviors
-    function onSuccess(data) {
-        console.log(data);
-    }
-
-    function onFail(jqXhr) {
-        console.log("check your file path");
-    }
-
-    function forAlways() {
-        console.log("looking...");
-    }
+    // function onSuccess(data) {
+    //     console.log(data);
+    // }
+    //
+    // function onFail(jqXhr) {
+    //     console.log("check your file path");
+    // }
+    //
+    // function forAlways() {
+    //     console.log("looking...");
+    // }
 
     // good--------------------------------------------------------
     // myBooks.done(onSuccess);
@@ -160,9 +161,9 @@ $(document).ready(function () {
     });
 
     // good--------------------------------------------------------
-    // newHope.done(function(data){
-    //     console.log("The director of A New Hope is : " + data.results[0].director);
-    // });
+    newHope.done(function(data){
+        console.log("The director of A New Hope is : " + data.results[0].director);
+    });
 
     /*
      * TO DO: Create a new variable that makes a similar request. Search for
@@ -179,9 +180,9 @@ $(document).ready(function () {
 
     // good--------------------------------------------------------
 
-    // forceAwakens.done(function(data){
-    //     console.log("The Force Awakens was released on : " + data.results[0].release_date);
-    // });
+    forceAwakens.done(function(data){
+        console.log("The Force Awakens was released on : " + data.results[0].release_date);
+    });
 
     /*
      * TO DO: Make a request to books.json. Return the author of "The
@@ -243,7 +244,7 @@ $(document).ready(function () {
             //parses through each object in json
             $.each(data, function (index, book) {
                 //logs individual book data
-                console.log(data[index]);
+                // console.log(data[index]);
                 //formatting 'content' so can append stylized content to main
                 var content = "<h2>";
                 content += book.title;
