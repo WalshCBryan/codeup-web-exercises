@@ -499,19 +499,33 @@ var randomNum = Math.floor(Math.random() * 10) + 1;
 
 // write a jave script function that returns you're welcome, but only when passed an object with the property of gratitude and the value of "you're welcome"
 
+//
+// var newObj = {
+//     gratitude: "thank you"
+// };
+//
+// function urWelcome(obj) {
+//     if (obj.gratitude === "thank you") {
+//         return "you're welcome!!"
+//     }
+// }
 
-var newObj = {
-    gratitude: "thank you"
-};
+// console.log(urWelcome(newObj));
+// console.log(urwelcome("dfgh"));
 
-function urWelcome(obj) {
-    if (obj.gratitude === "thank you") {
-        return "you're welcome!!"
-    }
+//write a function that returns a random true or false
+
+
+var randomNum = Math.floor(Math.random() * 2) + 1;
+
+
+function coinFlip(num) {
+    var num = Math.floor(Math.random() * 2) + 1;
+    if (num === 1) {
+        return true
+    } else return false
 }
 
-console.log(urWelcome(newObj));
-console.log(urwelcome("dfgh"));
 
 
-
+console.log(coinFlip());
