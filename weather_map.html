@@ -13,19 +13,16 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            line-height: .75em;
+            font-family: sans-serif;
+            /*line-height: .75em;*/
         }
 
         .card {
-            height: 300px;
-            width: 300px;
-            border: 2px solid grey;
+            height: 425px;
+            width: 350px;
+            border: 2px solid dodgerblue;
             border-radius: 5px;
         }
-
-        /*#todayWeather {*/
-        /*    justify-content: center;*/
-        /*}*/
 
         #map {
             /* the width and height may be set to any size */
@@ -33,7 +30,7 @@
             height: 400px;
             display: flex;
             margin: auto;
-            border: 2px solid black;
+            border: 2px solid dodgerblue;
             border-radius: 5px;
             /*justify-items: center;*/
             /*margin-left: 8.5em;*/
@@ -48,8 +45,9 @@
         }
 
         #todayWeather, #tmrwWeather, #dayAfterWeather {
-            height: 300px;
-            width: 300px;
+            height: 425px;
+            width: 350px;
+
         }
 
         .loader {
@@ -57,38 +55,77 @@
             width: 300px;
         }
 
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -5;
+        }
+
+        #header {
+            color: lightgray;
+            background: dodgerblue;
+        }
+
+        img {
+            height: 128px;
+            width: 128px;
+        }
     </style>
 </head>
 <body>
 
-<!--<div id="todayWeather"  >-->
-<!--</div>-->
 
-<h2>Deimos Weather Service</h2>
-<h5>We take weather cirrus</h5>
+<!-- The video ------------------------->
+<video autoplay muted loop id="myVideo">
+    <source src="assets/lights.mp4" type="video/mp4">
+</video>
 
+<!--header---------------------------------->
+<div class="" id="header">
+    <h1 class="pt-1 mb-0">Deimos Weather Service</h1>
+    <h4>We take weather cirrus</h4>
+</div>
+<!--Search form with input and submit button ------------------->
+<div>
+    <div style="width: 50%; margin: auto" class="input-group mb-3">
+        <input id="searchAddress" type="text" class="form-control" placeholder="City, State, Zip..."
+               aria-label="Search for Location" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button id="submit" class="button px-3 button-primary" type="button">Search</button>
+        </div>
+    </div>
 
-<ul id="output">
-    <li>
-        <div class="" id="todayWeather"></div>
-    </li>
+    <!--    holds li/divs to push weather info into---------------------->
+    <ul id="output">
+        <li>
+            <div class="mx-3" id="todayWeather"></div>
+        </li>
 
-    <li>
-        <div class="" id="tmrwWeather"></div>
-    </li>
+        <li>
+            <div class="mx-3" id="tmrwWeather"></div>
+        </li>
 
-    <li>
-        <div class="" id="dayAfterWeather"></div>
-    </li>
-</ul>
-
-<div id="map">
+        <li>
+            <div class="mx-3" id="dayAfterWeather"></div>
+        </li>
+    </ul>
 
 </div>
 
+<!--the map-------------------------------------------------->
+<div id="map" class="mb-5">
+
+</div>
+
+<!--coord WIP----------------------------------------->
 <div id="coordinates">
-    coordinates
+
 </div>
+
 
 <!--jquery-->
 <!--materialize-->
@@ -104,6 +141,8 @@
 <script src="js/keys.js"></script>
 <script>
 
+
+    // map generation   ------------------------------------------------------------
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
         container: 'map',
@@ -113,6 +152,8 @@
         // pitch: 45
     });
 
+
+    //marker and marker options--------------------------------------
     var markerOptions = {
         color: "limegreen",
         draggable: true
@@ -122,28 +163,7 @@
         .setLngLat([-98.4936, 29.4241])
         .addTo(map);
 
-
-    var coordinates = $("#coordinates");
-
-    marker.on('dragend', function () {
-        var lngLat = marker.getLngLat();
-        console.log(lngLat);
-        console.log(lngLat.lng);
-        console.log(lngLat.lat);
-        $("#coordinates").html(lngLat[0]);
-    });
-
-
-    // function onDragEnd() {
-    //     var lngLat = marker.getLngLat();
-    //     coordinates.style.display = 'block';
-    //     coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-    //     // $("#todayWeather").html("");
-    //     // $("#tmrwWeather").html("");
-    //     // $("#dayAfterWeather").html("");
-    //     getWeather();
-    // }
-
+    //retrieves and formats date for today, tomorrow, and day after tmrw------->
     var monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
@@ -157,6 +177,7 @@
     var dayAfterTomorrow = (month < 10 ? '0' : '') + month + ' ' + (dayAfterTomorrowSet < 10 ? '0' : '') + dayAfterTomorrowSet + ', ' + d.getFullYear();
 
 
+    //array holds icons and summaries. summaries are compared to darksky data
     var icons = [
         {
             summary: "clear-day",
@@ -201,6 +222,42 @@
 
     ];
 
+    // //----------------generates new request when dragged or searched
+    // function changeTheURL (latitude, longitude){
+    //     var newRequest = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latitude + "," + longitude);
+    //     return newRequest;
+    // }
+    //
+    //
+    // //-------------------drag forecast
+    // function onDragEnd() {
+    //     var lngLat = marker.getLngLat();
+    //     // coordinates.style.display = 'block';
+    //     // coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    //     var drag = changeTheURL(lngLat.lat, lngLat.lng );
+    //     weather(drag);
+    //     map.flyTo({center:
+    //             [lngLat.lng, lngLat.lat]})
+    // }
+    //
+    // marker.on('dragend', onDragEnd);
+    // var lngLat = marker.getLngLat();
+    //
+    // //----------------search forecast
+    // $("#searchAddress").click(function () {
+    //     var input = $("#addressInput").val();
+    //     geocode(input, mapboxToken).then(function (result) {
+    //         var longitude = result[0];
+    //         var latitude = result[1];
+    //         var search = changeTheURL(latitude, longitude);
+    //         map.setCenter(result);
+    //         marker.setLngLat(result);
+    //         weather(search);
+    //     });
+    // });
+    // var request = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lngLat.lat + "," + lngLat.lng);
+
+    //generates new target coord on marker drag-------------------------
     function onDragEnd() {
         var lngLat = marker.getLngLat();
         $("#todayWeather").html("");
@@ -209,12 +266,26 @@
         genWeather();
     }
 
-    marker.on('dragend', onDragEnd);
+    //generates new target based on text input with submit button
+    var input = $("#submit").click(function () {
+        var input = $("#searchAddress").val();
+        geocode(input, mapboxToken).then(function (result) {
+            console.log(result);
+            map.setZoom(10);
+            marker.setLngLat(result);
+            map.flyTo({center: result});
+            $('#todayWeather').html("");
+            $('#tmrwWeather').html("");
+            $('#dayAfterWeather').html("");
+            genWeather();
+        });
+    });
 
+
+    //generates weather cards, grabs lngLat from marker or search and edits url string--
     function genWeather() {
         marker.on('dragend', onDragEnd);
         var lngLat = marker.getLngLat();
-
         var long = lngLat.lng;
         var lat = lngLat.lat;
         var darkSky = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
@@ -227,7 +298,8 @@
             // console.log(lngLat.lat);
             // $("#coordinates").html(lngLat);
 
-
+            //storing datapoints as variables
+            //for today
             var todaySummary = data.daily.data[0].summary;
             var todayTempHi = parseInt(data.daily.data[0].temperatureHigh);
             var todayTempLo = parseInt(data.daily.data[0].temperatureLow);
@@ -235,6 +307,7 @@
             var todayWind = data.daily.data[0].windSpeed;
             var todayPressure = data.daily.data[0].pressure;
 
+            //for tomorrow
             var tmrwSummary = data.daily.data[1].summary;
             var tmrwTempHi = parseInt(data.daily.data[1].temperatureHigh);
             var tmrwTempLo = parseInt(data.daily.data[1].temperatureLow);
@@ -242,6 +315,7 @@
             var tmrwWind = data.daily.data[1].windSpeed;
             var tmrwPressure = data.daily.data[1].pressure;
 
+            //for day after tomorrow
             var dayAfterSummary = data.daily.data[2].summary;
             var dayAfterTempHi = parseInt(data.daily.data[2].temperatureHigh);
             var dayAfterTempLo = parseInt(data.daily.data[2].temperatureLow);
@@ -249,49 +323,53 @@
             var dayAfterWind = data.daily.data[2].windSpeed;
             var dayAfterPressure = data.daily.data[2].pressure;
 
+            //generates formatted cards and pushes to correct divs
+            // for today
             var weatherCard = "";
             weatherCard += "<div class='card d-inline-block'>";
-            weatherCard += '<div class="card-title">' + today + "</div>";
+            weatherCard += '<div class="card-title mt-2"><h5>' + today + "</h5></div>";
             weatherCard += '<div class="card-body">';
             weatherCard += '<img class="icon1">';
             weatherCard += '<hr> <h5>';
             weatherCard += 'High ' + todayTempHi + '°F/';
             weatherCard += 'Low ' + todayTempLo + '°F</h5>';
             weatherCard += '<p>' + todaySummary + '</p>';
-            weatherCard += '<p>Humidity: ' + todayHumidity + '%</p>';
-            weatherCard += '<p> Wind Speed: ' + todayWind + '</p>';
+            weatherCard += '<p>Humidity: ' + (todayHumidity * 100) + '%</p>';
+            weatherCard += '<p> Wind Speed: ' + todayWind + ' mph</p>';
             weatherCard += '<p> Pressure: ' + todayPressure + '</p>';
             $("#todayWeather").append(weatherCard);
 
+            //for tomorrow
             var weatherCard2 = "";
             weatherCard2 += "<div class='card d-inline-block'>";
-            weatherCard2 += '<div class="card-title">' + tomorrow + "</div>";
+            weatherCard2 += '<div class="card-title mt-2"><h5>' + tomorrow + "</h5></div>";
             weatherCard2 += '<div class="card-body">';
             weatherCard2 += '<img class="icon2">';
             weatherCard2 += '<hr> <h5>';
             weatherCard2 += 'High ' + tmrwTempHi + '°F/';
             weatherCard2 += 'Low ' + tmrwTempLo + '°F</h5>';
             weatherCard2 += '<p>' + tmrwSummary + '</p>';
-            weatherCard2 += '<p>Humidity: ' + tmrwHumidity + '%</p>';
-            weatherCard2 += '<p> Wind Speed: ' + tmrwWind + '</p>';
+            weatherCard2 += '<p>Humidity: ' + (tmrwHumidity * 100) + '%</p>';
+            weatherCard2 += '<p> Wind Speed: ' + tmrwWind + ' mph</p>';
             weatherCard2 += '<p> Pressure: ' + tmrwPressure + '</p>';
             $("#tmrwWeather").append(weatherCard2);
 
+            //for day after tomorrow
             var weatherCard3 = "";
             weatherCard3 += "<div class='card d-inline-block'>";
-            weatherCard3 += '<div class="card-title">' + dayAfterTomorrow + "</div>";
+            weatherCard3 += '<div class="card-title mt-2"><h5>' + dayAfterTomorrow + "</h5></div>";
             weatherCard3 += '<div class="card-body">';
             weatherCard3 += '<img class="icon3">';
             weatherCard3 += '<hr> <h5>';
             weatherCard3 += 'High ' + dayAfterTempHi + '°F/';
             weatherCard3 += 'Low ' + dayAfterTempLo + '°F</h5>';
             weatherCard3 += '<p>' + dayAfterSummary + '</p>';
-            weatherCard3 += '<p>Humidity: ' + dayAfterHumidity + '%</p>';
-            weatherCard3 += '<p> Wind Speed: ' + dayAfterWind + '</p>';
+            weatherCard3 += '<p>Humidity: ' + (dayAfterHumidity * 100) + '%</p>';
+            weatherCard3 += '<p> Wind Speed: ' + dayAfterWind + ' mph</p>';
             weatherCard3 += '<p> Pressure: ' + dayAfterPressure + '</p>';
             $("#dayAfterWeather").append(weatherCard3);
 
-
+            //compares the icon data from darksky to our icon array, and inserts the correct weather icon, which matches type.image
             icons.forEach(function (type) {
                 if (data.currently.icon === type.summary) {
                     $('.icon1').attr('src', type.image);
@@ -311,20 +389,8 @@
 
     }
 
+    //generates info on page load based on initial marker location
     genWeather();
-
-
-    //     .always(function(){
-    //     $("#todayWeather").html("<img class='loader' src='weatherIcons/loading.gif'>");
-    //     $("#tmrwWeather").html("<img  class='loader' src='weatherIcons/loading.gif'>");
-    //     $("#dayAfterWeather").html("<img class='loader' src='weatherIcons/loading.gif'>");
-    // });
-    //
-    // darkSky.fail(function(){
-    //     $("#todayWeather").html("<img src='weatherIcons/loading.gif'");
-    //     $("#tmrwWeather").html("<img src='weatherIcons/loading.gif'");
-    //     $("#dayAfterWeather").html("<img src='weatherIcons/loading.gif'");
-    // })
 
 
 </script>
