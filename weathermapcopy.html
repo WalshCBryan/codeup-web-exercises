@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="css/weather_map.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+
+
+    <!--    TO DO: output locale to div at bottom of page
+    link submit button to <a> to scroll to bottom of page, target this output div
+    check locale date from ajax request to find location-->
     <style>
+
         * {
             margin: 0;
             padding: 0;
             text-align: center;
-            font-family: sans-serif;
-            /*line-height: .75em;*/
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Open Sans', sans-serif;
+
         }
 
         .card {
@@ -21,6 +32,7 @@
             width: 350px;
             border: 5px solid dodgerblue;
             border-radius: 5px;
+            background-color: snow;
         }
 
         #map {
@@ -34,6 +46,7 @@
             /*justify-items: center;*/
             /*margin-left: 8.5em;*/
             /*margin-top: 10em;*/
+
         }
 
         #output {
@@ -45,8 +58,13 @@
         #todayWeather, #tmrwWeather, #dayAfterWeather {
             height: 425px;
             width: 350px;
+            /*put background here?????? might work!*/
         }
 
+        .loader {
+            height: 150px;
+            width: 300px;
+        }
 
         /* Style the video: 100% width and height to cover the entire window */
         #myVideo {
@@ -60,12 +78,34 @@
 
         #header {
             color: lightgray;
-            background: dodgerblue;
+            background-color: dodgerblue;
+        }
+
+        #footer {
+            background-color: dodgerblue;
+            color: lightgray;
+            height: 40px;
+            width: 85%;
+            z-index: 2;
+            display: block;
+            margin: auto;
+            border-radius: 5px;
+
         }
 
         img {
             height: 128px;
             width: 128px;
+        }
+
+        hr {
+            margin: auto;
+            margin-bottom: 10px;
+            width: 85%;
+        }
+
+        #searchAddress {
+            background-color: snow;
         }
 
         .loading {
@@ -79,33 +119,28 @@
             display: block;
             border: 5px solid white;
             border-radius: 5px;
-            line-height: 200px;
         }
 
-        #location {
-            width: 85%;
-            background-color: dodgerblue;
-            border: 5px solid white;
+        .failure {
+            /*background-image: url("weatherIcons/loading.gif");*/
+            background-position: center;
+            background-color: snow;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 425px;
+            width: 350px;
+            display: block;
+            border: 5px solid dodgerblue;
             border-radius: 5px;
-            z-index: 2;
-            height: 50px;
-            margin: auto;
-            margin-bottom: 15px;
         }
 
         .retrieving {
             line-height: 200px;
+            color: snow;
         }
     </style>
 </head>
 <body>
-
-<!--NOTES: -->
-<!--  run into errors, especially when using text input to search for location-->
-<!--  Loading animation only runs on page load, not on subsequent requests-->
-<!--  Should output error message if location cannot be found-->
-<!--drop page to bottom when search bar is used submit OR enter-->
-<!--change temp from F to C when clicked------------------------->
 
 
 <!-- The video ------------------------->
@@ -135,6 +170,10 @@
                 <div class="loading">
                     <h5 class="retrieving"> Retrieving information...</h5>
                 </div>
+                <div class="failure d-none">
+                    <h2>Oops, something went wrong</h2>
+                    <h4>Please try again...</h4>
+                </div>
             </div>
         </li>
 
@@ -142,7 +181,13 @@
             <div class="mx-3" id="tmrwWeather">
                 <div class="loading">
                     <h5 class="retrieving"> Retrieving information...</h5>
+
                 </div>
+                <div class="failure d-none">
+                    <h2>Oops, something went wrong</h2>
+                    <h4>Please try again...</h4>
+                </div>
+
             </div>
         </li>
 
@@ -150,7 +195,13 @@
             <div class="mx-3" id="dayAfterWeather">
                 <div class="loading">
                     <h5 class="retrieving"> Retrieving information...</h5>
+
                 </div>
+                <div class="failure d-none">
+                    <h2>Oops, something went wrong</h2>
+                    <h4>Please try again...</h4>
+                </div>
+
             </div>
         </li>
     </ul>
@@ -162,9 +213,11 @@
 
 </div>
 
-<!--coord WIP----------------------------------------->
-<div class="" id="location">
-    <h3 id="localeOutput"></h3>
+<!--location WIP, using rev geocoding to get location as string   ----------------------------------------->
+
+<!--header---------------------------------->
+<div class="mb-5 mt-2" id="footer">
+    <h2 id="locale">placeholder</h2>
 </div>
 
 
@@ -181,6 +234,8 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/keys.js"></script>
 <script>
+
+
     // map generation   ------------------------------------------------------------
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
@@ -190,25 +245,19 @@
         center: [-98.4936, 29.4241]
         // pitch: 45
     });
+
+
     //marker and marker options--------------------------------------
     var markerOptions = {
         color: "limegreen",
         draggable: true
     };
 
-    //marker options---------------------------------------
     var marker = new mapboxgl.Marker(markerOptions)
         .setLngLat([-98.4936, 29.4241])
         .addTo(map);
-    var lngLat = marker.getLngLat();
-    var long = lngLat.lng;
-    var lat = lngLat.lat;
-    reverseGeocode({lat: lat, lng: long}, mapboxToken).then(function (result) {
-        $("#localeOutput").html(result);
-    });
 
-
-    //retrieves and formats date for today, tomorrow, and day after tmrw---------------------------------->
+    //retrieves and formats date for today, tomorrow, and day after tmrw------->
     var monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
@@ -246,7 +295,7 @@
         },
         {
             summary: "wind",
-            image: 'weatherIcons/windy.png"'
+            image: 'weatherIcons/windy.png style="height: 64px; width: 64px"'
         },
         {
             summary: "fog",
@@ -264,14 +313,50 @@
             summary: "partly-cloudy-night",
             image: 'weatherIcons/cloudy-night-1.svg'
         }
+
     ];
 
+    // //----------------generates new request when dragged or searched
+    // function changeTheURL (latitude, longitude){
+    //     var newRequest = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latitude + "," + longitude);
+    //     return newRequest;
+    // }
+    //
+    //
+    // //-------------------drag forecast
+    // function onDragEnd() {
+    //     var lngLat = marker.getLngLat();
+    //     // coordinates.style.display = 'block';
+    //     // coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    //     var drag = changeTheURL(lngLat.lat, lngLat.lng );
+    //     weather(drag);
+    //     map.flyTo({center:
+    //             [lngLat.lng, lngLat.lat]})
+    // }
+    //
+    // marker.on('dragend', onDragEnd);
+    // var lngLat = marker.getLngLat();
+    //
+    // //----------------search forecast
+    // $("#searchAddress").click(function () {
+    //     var input = $("#addressInput").val();
+    //     geocode(input, mapboxToken).then(function (result) {
+    //         var longitude = result[0];
+    //         var latitude = result[1];
+    //         var search = changeTheURL(latitude, longitude);
+    //         map.setCenter(result);
+    //         marker.setLngLat(result);
+    //         weather(search);
+    //     });
+    // });
+    // var request = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lngLat.lat + "," + lngLat.lng);
 
     //generates new target coord on marker drag-------------------------
     function onDragEnd() {
         var lngLat = marker.getLngLat();
-        var long = lngLat.lng;
-        var lat = lngLat.lat;
+        $("#todayWeather").html("");
+        $("#tmrwWeather").html("");
+        $("#dayAfterWeather").html("");
         genWeather();
     }
 
@@ -279,58 +364,57 @@
     var input = $("#submit").click(function () {
         var input = $("#searchAddress").val();
         geocode(input, mapboxToken).then(function (result) {
-            var lngLat = marker.getLngLat();
-            var long = lngLat.lng;
-            var lat = lngLat.lat;
-            // console.log(result);
+            console.log(result);
             map.setZoom(10);
             marker.setLngLat(result);
             map.flyTo({center: result});
-            $("#searchAddress").val("");
+            $('#todayWeather').html("");
+            $('#tmrwWeather').html("");
+            $('#dayAfterWeather').html("");
             genWeather();
+            $("#searchAddress").val("");
         });
     });
 
+    //search function linked to search input, runs on enter key
     var input = $(document).keyup(function (event) {
         // console.log(event.key);
         if (event.key === "Enter") {
             var input = $("#searchAddress").val();
             geocode(input, mapboxToken).then(function (result) {
-                var lngLat = marker.getLngLat();
-                var long = lngLat.lng;
-                var lat = lngLat.lat;
-                // console.log(result);
+                console.log(result);
                 map.setZoom(10);
                 marker.setLngLat(result);
                 map.flyTo({center: result});
-
-                $("#searchAddress").val("");
+                $('#todayWeather').html("");
+                $('#tmrwWeather').html("");
+                $('#dayAfterWeather').html("");
                 genWeather();
-
+                $("#searchAddress").val("");
             });
         }
     });
-    //  *****************************************************************
-    //  generates weather cards, grabs lngLat from marker or search and edits url string--
+
+
+    //generates weather cards, grabs lngLat from marker or search and edits url string--
     function genWeather() {
         marker.on('dragend', onDragEnd);
         var lngLat = marker.getLngLat();
         var long = lngLat.lng;
         var lat = lngLat.lat;
+        var forRevGeo = "{lat: " + lngLat.lat + ", lng: " + lngLat.lng + "}";
         var darkSky = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + "," + long).done(function (data) {
+            console.log(data);
 
-            //reverse geocoding to push locale information to page
-            var lngLat = marker.getLngLat();
-            var long = lngLat.lng;
-            var lat = lngLat.lat;
-            reverseGeocode({lat: lat, lng: long}, mapboxToken).then(function (result) {
-                $("#localeOutput").html(result);
-            });
-loading();
-            //clears current card
+            var locale = reverseGeocode({lat: lat, lng: long}, mapboxToken);
+            console.log(locale.PromiseValue);
+            $("#locale").html(locale);
+
+            //clears prev content
             $("#todayWeather").html("");
             $("#tmrwWeather").html("");
             $("#dayAfterWeather").html("");
+
 
             //storing datapoints as variables
             //for today
@@ -361,14 +445,14 @@ loading();
             // for today
             var weatherCard = "";
             weatherCard += "<div class='card d-inline-block'>";
-            weatherCard += '<div class="card-title mt-2"><h5>' + today + "</h5></div>";
-            weatherCard += '<div class="card-body">';
+            weatherCard += '<div class="card-title mt-2 mb-0"><h5>' + today + "</h5></div>";
+            weatherCard += '<div class="card-body p-0">';
             weatherCard += '<img class="icon1">';
             weatherCard += '<hr> <h5>';
-            weatherCard += 'High ' + todayTempHi + '°F / ';
+            weatherCard += 'High ' + todayTempHi + '°F/';
             weatherCard += 'Low ' + todayTempLo + '°F</h5>';
             weatherCard += '<p>' + todaySummary + '</p>';
-            weatherCard += '<p>Humidity: ' + parseInt((todayHumidity * 100)) + '%</p>';
+            weatherCard += '<p>Humidity: ' + (todayHumidity * 100) + '%</p>';
             weatherCard += '<p> Wind Speed: ' + todayWind + ' mph</p>';
             weatherCard += '<p> Pressure: ' + todayPressure + '</p>';
             $("#todayWeather").append(weatherCard);
@@ -376,14 +460,14 @@ loading();
             //for tomorrow
             var weatherCard2 = "";
             weatherCard2 += "<div class='card d-inline-block'>";
-            weatherCard2 += '<div class="card-title mt-2"><h5>' + tomorrow + "</h5></div>";
-            weatherCard2 += '<div class="card-body">';
+            weatherCard2 += '<div class="card-title mt-2 mb-0"><h5>' + tomorrow + "</h5></div>";
+            weatherCard2 += '<div class="card-body p-0">';
             weatherCard2 += '<img class="icon2">';
             weatherCard2 += '<hr> <h5>';
-            weatherCard2 += 'High ' + tmrwTempHi + '°F / ';
+            weatherCard2 += 'High ' + tmrwTempHi + '°F/';
             weatherCard2 += 'Low ' + tmrwTempLo + '°F</h5>';
             weatherCard2 += '<p>' + tmrwSummary + '</p>';
-            weatherCard2 += '<p>Humidity: ' + parseInt((tmrwHumidity * 100)) + '%</p>';
+            weatherCard2 += '<p>Humidity: ' + (tmrwHumidity * 100) + '%</p>';
             weatherCard2 += '<p> Wind Speed: ' + tmrwWind + ' mph</p>';
             weatherCard2 += '<p> Pressure: ' + tmrwPressure + '</p>';
             $("#tmrwWeather").append(weatherCard2);
@@ -391,14 +475,14 @@ loading();
             //for day after tomorrow
             var weatherCard3 = "";
             weatherCard3 += "<div class='card d-inline-block'>";
-            weatherCard3 += '<div class="card-title mt-2"><h5>' + dayAfterTomorrow + "</h5></div>";
-            weatherCard3 += '<div class="card-body">';
+            weatherCard3 += '<div class="card-title mt-2 bm-0"><h5>' + dayAfterTomorrow + "</h5></div>";
+            weatherCard3 += '<div class="card-body p-0">';
             weatherCard3 += '<img class="icon3">';
             weatherCard3 += '<hr> <h5>';
-            weatherCard3 += 'High ' + dayAfterTempHi + '°F / ';
+            weatherCard3 += 'High ' + dayAfterTempHi + '°F/';
             weatherCard3 += 'Low ' + dayAfterTempLo + '°F</h5>';
             weatherCard3 += '<p>' + dayAfterSummary + '</p>';
-            weatherCard3 += '<p>Humidity: ' + parseInt((dayAfterHumidity * 100)) + '%</p>';
+            weatherCard3 += '<p>Humidity: ' + (dayAfterHumidity * 100) + '%</p>';
             weatherCard3 += '<p> Wind Speed: ' + dayAfterWind + ' mph</p>';
             weatherCard3 += '<p> Pressure: ' + dayAfterPressure + '</p>';
             $("#dayAfterWeather").append(weatherCard3);
@@ -419,28 +503,37 @@ loading();
                     $('.icon3').attr('src', type.image);
                 }
             });
-        });
+            reverseGeocode(input, mapboxToken);
 
+        }).fail(function (data) {
+            alert("Oops, something went wrong. Please try again.");
+            console.log("failure");
+        });
     }
+
+
+    // .ajax.beforeSend(function(){
+    //     $("#todayWeather").html("<img src='weatherIcons/loading.gif'>");
+    //     $("#tmrwWeather").html("<img src='weatherIcons/loading.gif'>");
+    //     $("#dayAfterWeather").html("<img src='weatherIcons/loading.gif'>");
+    // })
+
+    //shows loading animation while ajax request is processing
+    $(document).ready(function () {
+        $(document).ajaxStart(function () {
+            $(".loading").show();
+        }).ajaxStop(function () {
+            $(".loading").show();
+        });
+    });
+
+
+    // console.log(reverseGeocode(input, mapboxToken));
 
 
     //generates info on page load based on initial marker location
     genWeather();
 
-    //shows loading animation while ajax request is processing
-    loading();
-
-    function loading() {
-        $(document).ajaxSend(function () {
-            $(".loading").show();
-        });
-
-        $(document).ajaxComplete(function () {
-            $(".loading").show();
-        });
-    }
-
-//    write function to show and to hide, and to hide not based on ajax request
 
 </script>
 </body>
