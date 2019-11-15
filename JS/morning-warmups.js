@@ -6,7 +6,7 @@ function sumBoth(x) {
     var a = 3;
     var b = 2;
     return (a + b);
-    console.log(a + b);
+    // console.log(a + b);
 }
 
 function sumAll(X, Y) {
@@ -14,8 +14,8 @@ function sumAll(X, Y) {
     return sum;
 }
 
-console.log(sumAll(2, 5));
-console.log(sumAll(1, 8));
+// console.log(sumAll(2, 5));
+// console.log(sumAll(1, 8));
 
 //function to return area of triangle given 3 sides, Heron's formula
 
@@ -435,7 +435,7 @@ function tallestHamster(arr) {
     });
 }
 
-console.log(tallestHamster(hamsters));
+// console.log(tallestHamster(hamsters));
 
 //write a function that accepts a number 1-10 and returns that number as a string/spelled out. ie 2 return "two"
 
@@ -527,18 +527,103 @@ function coinFlip(num) {
 }
 
 
-
-console.log(coinFlip());
+// console.log(coinFlip());
 
 // given an array of numbers return all even numbers
 
-function evensOnly(arr){
+function evensOnly(arr) {
     var newArr = [];
-    for (var i=0; i <=arr.length; i++){
-        if (arr[i] % 2 === 0){
+    for (var i = 0; i <= arr.length; i++) {
+        if (arr[i] % 2 === 0) {
             newArr.push(arr[i])
         }
-    } return newArr
+    }
+    return newArr
 }
 
-console.log(evensOnly([1, 2, 3, 4, 5, 6, 7, 8]));
+// console.log(evensOnly([1, 2, 3, 4, 5, 6, 7, 8]));
+
+
+// write a function that returns a promise, the promise should resovle is promise takes in even number and reject if passed anything else
+
+let randoNum = Math.floor(Math.random() * 10) + 1;
+
+
+const evenPromise = num => {
+    return new Promise((resolve, reject) => {
+        if ((num % 2 === 0) && (typeof(num) === 'number')) {
+            resolve('this is an even number');
+        } else {
+            reject('this is not an even number or isNaN');
+        }
+    })
+};
+
+
+evenPromise(randoNum)
+    .then(message => console.log(`${randoNum}: ${message}`))
+    .catch(message => console.log(`${randoNum}:  ${message}`));
+
+
+//
+// const evenNumsOnlyByPromise
+// (num)
+// {
+//     return new Promise((resolve, reject) => {
+//         if (typeof (num) === "number" && num % 2 === 0) {
+//             resolve('this number is even');
+//         } else {
+//             reject('this number is not even or isNaN');
+//         }
+//     });
+// }
+//
+//
+// evenNumberPromise.then(response => console.log(response));
+// evenNumberPromise.catch(error => console.error(error));
+
+// console.log(evenNumsOnlyByPromise(2));
+//
+//
+// const wait = (num) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, num);
+//     })
+// };
+//
+// wait(1000).then(() => console.log('You\'ll see this after 1 second'));
+// wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
+
+
+// write a function that returns a  promise, resolves wiht message of hello, write to the html doc an H! that has text of resolve
+
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        resolve('hello');
+    })
+};
+
+
+
+
+const testPromise = () => {
+    return new Promise((resolve, reject) => {
+        let x = true;
+        if  (x == true) {
+            resolve('hello');
+        } else {
+            reject('no reject should happen, what you do!?!');
+        }
+    })
+};
+
+testPromise()
+    .then(message => document.write(`<h1>${message}</h1>`))
+    .catch(message => console.log('no go, partner!'));
+
+
+// testPromise()
+//     .then(message => document.getElementsByTagName('body[0]').innerHTML += `<h1>${message}</h1>`)
+//     .catch(message => console.log('no go, partner!'));
