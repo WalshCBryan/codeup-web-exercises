@@ -186,11 +186,11 @@ function quotient(x, y) {
     } else return false;
 }
 
-console.log(quotient(1, 2), .5);
-console.log(quotient(10, 5), 2);
-console.log(quotient(1, null), false);
-console.log(quotient("num1", 3), false);
-console.log(quotient(1, isNaN), false);
+// console.log(quotient(1, 2), .5);
+// console.log(quotient(10, 5), 2);
+// console.log(quotient(1, null), false);
+// console.log(quotient("num1", 3), false);
+// console.log(quotient(1, isNaN), false);
 
 // function that takes an input and return true if input is a string at least 8 chars in length
 
@@ -341,14 +341,14 @@ var shoppers = [
     }
 ];
 
-shoppers.forEach(function (shopper) {
-    var discount = shopper.amount * .12;
-    var newtotal = shopper.amount - discount;
-    if (shopper.amount >= 200) {
-        console.log("great, for spending $" + shopper.amount + " you get a discount of $" + discount + ". New total is $" + newtotal);
-    } else
-        console.log("no discount for you. You still have a bill of $" + shopper.amount);
-});
+// shoppers.forEach(function (shopper) {
+//     var discount = shopper.amount * .12;
+//     var newtotal = shopper.amount - discount;
+//     if (shopper.amount >= 200) {
+//         console.log("great, for spending $" + shopper.amount + " you get a discount of $" + discount + ". New total is $" + newtotal);
+//     } else
+//         console.log("no discount for you. You still have a bill of $" + shopper.amount);
+// });
 
 //write a function that accepts an array of students and reutrns array of students no regstered for class
 
@@ -625,5 +625,17 @@ testPromise()
 
 
 // testPromise()
-//     .then(message => document.getElementsByTagName('body[0]').innerHTML += `<h1>${message}</h1>`)
+//     .then(message => document.getElementsByTagNamebnm, ('body[0]').innerHTML += `<h1>${message}</h1>`)
 //     .catch(message => console.log('no go, partner!'));
+
+
+// write a funtion that returns pi to six decimal places as a numberr
+
+const piToSix = () => { return (parseFloat(((Math.PI.toFixed(6))))) }
+
+
+console.log(piToSix());
+
+
+
+
