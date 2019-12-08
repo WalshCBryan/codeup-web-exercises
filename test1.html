@@ -3,10 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Sacramento&display=swap" rel="stylesheet">
+<!--    <link rel="stylesheet" href="css/bryan-style.css">-->
 </head>
 <body>
 
+<button type="button" class="btn btn-secondary fixed-top" data-toggle="modal" data-target="#exampleModal">
+    Launch modal
+</button>
 
-<script src="js/jstesting.js"></script>
+
+<!-- Modal -->
+<div class="modal fade roboto" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Question No.###</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="questionCard">
+                    <!--    the Question ------------------------------------------->
+                    <div id="questionHolder">
+                        <h4>question goes here</h4>
+                    </div>
+<!--answer 1-->
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="A" name="customRadio" value="A" class="custom-control-input">
+                        <label class="custom-control-label"  for="A">Answer A</label>
+                    </div>
+<!--answer 2                   -->
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="B" name="customRadio" value="B" class="custom-control-input">
+                        <label class="custom-control-label"  for="B">answer b</label>
+                    </div>
+
+<!--Answer 3                    -->
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="C" name="customRadio" value="C" class="custom-control-input">
+                        <label class="custom-control-label"  for="C">answer c</label>
+                    </div>
+<!--answer 4-->
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="D" name="customRadio" value="D" class="custom-control-input">
+                        <label class="custom-control-label" for="D">answer d</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="theButton" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+;
+
+
+<!--<script src="js/jstesting.js"></script>-->
+<script src="js/jstesting2.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+
+
+// grabs value of selected radion button
+    function getVal(){
+       let radioVal = $('input[name="customRadio"]:checked').val();
+        console.log(radioVal);
+        return radioVal;
+    }
+
+
+
+
+    // $("#theButton").click("");
+    $("#theButton").click(function() {
+        getVal();
+    });
+
+//having trouble tying this to submit button on modal, this works on static modal
+
+
+</script>
 </body>
 </html>
