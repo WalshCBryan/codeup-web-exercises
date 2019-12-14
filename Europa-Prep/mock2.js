@@ -3,7 +3,8 @@
 //define a function names addFive that takes an input and adds 5, if the input is NOT numeric the function should return false.
 
 function addFive(x) {
-    x = parseInt(x) + 5;
+    x = parseInt(x);
+    x += 5;
     if (isNaN(x)) {
         return false;
     } else {
@@ -17,8 +18,8 @@ function addFive(x) {
 // console.log(addFive("cat")); // false
 
 
-//define a function names toTheThird that takes an input and returns that input to the third power (cubed); if the input is not numeric the function should return false
 
+//define a function names toTheThird that takes an input and returns that input to the third power (cubed); if the input is not numeric the function should return false
 
 function toTheThird(x) {
     x = parseInt(x);
@@ -29,13 +30,14 @@ function toTheThird(x) {
     }
 }
 
+
 // console.log(toTheThird("2")); // 8
 // console.log(toTheThird(5)); // 125
 // console.log(toTheThird(true)); // false
 // console.log(toTheThird("cat")); // false
 
 
-// Define a function named lowerCase that takes in a single input. If the input is not a string, return false. If the input is a non-numeric string, then return it with all the letters capitalized.
+// Define a function named lowerCase that takes in a single input. If the input is not a string, return false. If the input is a non-numeric string, then return it with all the letters !capitalized.
 
 function lowerCase(x) {
     if (!isNaN(parseInt(x))) {
@@ -47,20 +49,23 @@ function lowerCase(x) {
     }
 }
 
+
+
+
 // console.log(lowerCase("2")); // false
 // console.log(lowerCase(5)); // false
 // console.log(lowerCase(true)); // false
-// console.log(lowerCase("CAT")); // CAT
+// console.log(lowerCase("CAT")); // cat
 
 
-// Write a function named sumOfCubes that takes in two inputs. If both inputs are numeric, sumOfSquares should square each input and return the sum of them added together. For example, if we pass a and b then we should square a and add it to the square of b. If either or both inputs are not numeric, sumOfSquares should return false.
+// Write a function named sumOfCubes that takes in two inputs. If both inputs are numeric, sumOfCubes should cube each input and return the sum of them added together. For example, if we pass a and b then we should cube of a and add it to the cube of b. If either or both inputs are not numeric, sumOfSquares should return false.
 
 function sumOFCubes(x, y) {
     x = parseInt(x);
     y = parseInt(y);
     if (isNaN(x) || isNaN(y)) {
         return false
-    } else return (toTheThird(x) + (toTheThird(y)));
+    } else return ((x*x*x)+(y*y*y));
 }
 
 // console.log(sumOFCubes("2", "5")); //8 + 125 = 133
@@ -83,13 +88,14 @@ function divide(x, y) {
     }
 }
 
+//
 // console.log(divide("12", "4")); // 12 / 4 = 3
 // console.log(divide(20, 6)); // 20 / 6 = 3.33333~
 // console.log(divide(true, true)); // false
 // console.log(divide("cat", "dog")); //false
-
-//hey, aren't there special rules when it comes to dividing with or by 0???
-
+//
+// // hey, aren't there special rules when it comes to dividing with or by 0???
+//
 // console.log(divide(0, 12));
 // console.log(divide(12, 0));
 
@@ -97,7 +103,6 @@ function divide(x, y) {
 
 
 // Write a function named reverseUpperCaseString that takes in a single input. If the input is a numeric string, then return false. If the input is a string, return that string capitalized and reversed
-
 
 function reverseUpperCaseString(x) {
     if (!isNaN(parseFloat(x))) {
@@ -110,6 +115,8 @@ function reverseUpperCaseString(x) {
     }
 }
 
+
+
 // console.log(reverseUpperCaseString(true)); // false
 // console.log(reverseUpperCaseString(18)); // false
 // console.log(reverseUpperCaseString("15")); // false
@@ -119,15 +126,17 @@ function reverseUpperCaseString(x) {
 
 
 
-// Write a function named getLowestNumber that takes in 3 arguments. If all 3 inputs are numbers or numeric strings, then return the highest number. If any of the 3 inputs is missing or non-numeric, then return false.
-
-
+// Write a function named getLowestNumber that takes in 3 arguments. If all 3 inputs are numbers or numeric strings, then return the lowest number. If any of the 3 inputs is missing or non-numeric, then return false.
 
 function getLowestNumber(x, y, z) {
-  if (typeof (x) == "number" && typeof (y) == "number" && typeof (z) == "number") {
+    x = parseInt(x);
+    y = parseInt(y);
+    z = parseInt(z);
+    if (!isNaN(x) && (!isNaN(y) && (!isNaN(z)))) {
         return Math.min(x, y, z);
     } else return false
 }
+
 
 //oh no; something seems to be going wrong! My function is not recognizing numeric strings!!! how can we fix this?
 
